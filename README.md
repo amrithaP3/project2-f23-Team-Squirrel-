@@ -68,7 +68,7 @@ We will be incorporating all we have learned thus far such as CSS, components, h
 <img width="128" alt="Screenshot 2023-11-09 at 5 48 59 PM" src="https://github.com/BoG-Dev-Bootcamp-F23/project2-f23/assets/8647920/efd8344a-a402-475e-bd5d-8ea650353043">
 
 - This component will hold links to the training log dashboard and animal dashboard.
-- If the current user is an admin it will also display links to the Admin View Pages.
+- If the current user is an admin it will also display links to the Admin View Pages (you can use the return from the verify endpoint to determine this).
 - At the bottom, it will display the current user's name and if the user is an admin or not as well as a link to log out (which navigates to the Log In page)
 
 ### Admin View Pages
@@ -119,7 +119,7 @@ We will be incorporating all we have learned thus far such as CSS, components, h
     - (Bonus) These three endpoints can implement pagination -- ideally using the document IDs or some other property that has natural ordering (i.e. take a look at approach 2 in this [article](https://www.codementor.io/@arpitbhayani/fast-and-efficient-pagination-in-mongodb-9095flbqr))
 
 ### Verify User
-- Create a POST endpoint at `/api/user/verify` that determines if both the email and password match a user in the database for login. Returns the user's id.
+- Create a GET endpoint at `/api/user/verify` that determines if both the email and password match a user in the database for login. Returns both the user's id and true/false depending on whether the user is an admin or not.
     - Response:
         - **Status 200 (Success):** If the user info is valid
         - **Status 500**: If the user info is not valid
