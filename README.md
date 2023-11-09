@@ -94,7 +94,7 @@ We will be incorporating all we have learned thus far such as CSS, components, h
         - **Status 200 (Success):** If the body contains all of the information and is able to create the user/animal/training log
         - **Status 400:** If the body contains incorrect information
         - **Status 500:** For any other errors that occur
-- (Bonus) In the `POST api/training` endpoint, we want to add in a check to ensure that the animal specified in the training log belongs to the user specified in the training log. Add in code to do this.
+- (Bonus) In the `POST /api/training` endpoint, we want to add in a check to ensure that the animal specified in the training log belongs to the user specified in the training log. Add in code to do this.
     - Response:
         - **Status 400:** If the training log animal is not owned by specified user
 
@@ -120,7 +120,7 @@ We will be incorporating all we have learned thus far such as CSS, components, h
     - (Bonus) These three endpoints can implement pagination -- ideally using the document IDs or some other property that has natural ordering (i.e. take a look at approach 2 in this [article](https://www.codementor.io/@arpitbhayani/fast-and-efficient-pagination-in-mongodb-9095flbqr))
 
 ### Verify User
-- Create a GET endpoint that determines if both the user's email and password exist in the database for log in.
+- Create a POST endpoint at `/api/user/verify` that determines if both the email and password match a user in the database for log in.
     - Response:
         - **Status 200 (Success):** If the user info is valid
         - **Status 500**: If the user info is not valid
