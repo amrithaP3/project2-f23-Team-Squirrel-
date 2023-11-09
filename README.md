@@ -22,7 +22,7 @@ There are a lot of "bonuses" included in the specifications in this project. We 
 We will be incorporating all we have learned thus far such as CSS, components, hooks/state, conditional rendering, and routing! Here's a link to the [Figma designs](https://www.figma.com/file/8nmpzRec6atkZMdXYXH0bW/AnimalTrainingApp?type=design&node-id=0%3A1&mode=design&t=v1XLulgKlPSI40S2-1). We recommend following the general organization of these designs, but feel free to have creative freedom in designing the frontend.
 
 ### Log In Page
-<img width="957" alt="Screenshot 2023-11-09 at 5 46 35 PM" src="https://github.com/BoG-Dev-Bootcamp-F23/project2-f23/assets/8647920/487260fd-8c0a-44dd-88e2-04cc2b568b42">
+<img width="600" alt="Screenshot 2023-11-09 at 5 46 35 PM" src="https://github.com/BoG-Dev-Bootcamp-F23/project2-f23/assets/8647920/487260fd-8c0a-44dd-88e2-04cc2b568b42">
 
 - This page will be the first page to display when running the application
 - It should allow a user to input their email and password and click a log in button
@@ -33,7 +33,7 @@ We will be incorporating all we have learned thus far such as CSS, components, h
 - **Important:** Make sure to track the user's id either through props or [custom hooks](https://react.dev/learn/reusing-logic-with-custom-hooks) (a more clean way to do it) as you route to other pages
 
 ### Create Account Page
-<img width="679" alt="Screenshot 2023-11-09 at 5 46 51 PM" src="https://github.com/BoG-Dev-Bootcamp-F23/project2-f23/assets/8647920/a6f3e15f-3c24-4bd2-ad73-592fe93e6731">
+<img width="600" alt="Screenshot 2023-11-09 at 5 46 51 PM" src="https://github.com/BoG-Dev-Bootcamp-F23/project2-f23/assets/8647920/a6f3e15f-3c24-4bd2-ad73-592fe93e6731">
 
 - There will be four inputs on this page: Full Name, Email, Password, and Confirm Password
 - We will also have a checkbox for if the user is an Admin or not
@@ -46,7 +46,7 @@ We will be incorporating all we have learned thus far such as CSS, components, h
 - **Important:** Make sure to track the user's id either through props or [custom hooks](https://react.dev/learn/reusing-logic-with-custom-hooks) (a more clean way to do it) as you route to other pages
 
 ### Training Logs Dashboard
-<img width="681" alt="Screenshot 2023-11-09 at 5 47 03 PM" src="https://github.com/BoG-Dev-Bootcamp-F23/project2-f23/assets/8647920/7c600de3-89ed-4622-bb44-8e1e154f422e">
+<img width="600" alt="Screenshot 2023-11-09 at 5 47 03 PM" src="https://github.com/BoG-Dev-Bootcamp-F23/project2-f23/assets/8647920/7c600de3-89ed-4622-bb44-8e1e154f422e">
 
 - This page will have the sidebar and search bar components along with displaying all training logs that the current user has for all of their animals.
 - Training Log Components display the title, date of the log, user's name, animal's name, animal's breed, hours logged, and the description of the log. They are ordered by date.
@@ -56,7 +56,7 @@ We will be incorporating all we have learned thus far such as CSS, components, h
 - (Bonus) Include an option to edit existing training logs. This would involve navigating to a similar form as the training log creation form, except the form inputs are all prefilled with the current data
 
 ### Animals Dashboard
-<img width="684" alt="Screenshot 2023-11-09 at 5 47 21 PM" src="https://github.com/BoG-Dev-Bootcamp-F23/project2-f23/assets/8647920/a9759339-1caa-4326-bce3-56d7b3ddc47f">
+<img width="600" alt="Screenshot 2023-11-09 at 5 47 21 PM" src="https://github.com/BoG-Dev-Bootcamp-F23/project2-f23/assets/8647920/a9759339-1caa-4326-bce3-56d7b3ddc47f">
 
 - This page will have the sidebar and search bar components along with displaying all animals that the current user owns.
 - Animal components display an image of the animal from a Google image URL string, its name, breed, owner, and hours it has been trained thus far.
@@ -72,7 +72,7 @@ We will be incorporating all we have learned thus far such as CSS, components, h
 - At the bottom it will display the current user's name and if the user is an admin or not as well as a link to log out (which navigates to the log in page)
 
 ### Search Bar Component (bonus)
-<img width="681" alt="Screenshot 2023-11-09 at 5 49 13 PM" src="https://github.com/BoG-Dev-Bootcamp-F23/project2-f23/assets/8647920/ac885c28-fcba-4806-933b-eb324877d438">
+<img width="600" alt="Screenshot 2023-11-09 at 5 49 13 PM" src="https://github.com/BoG-Dev-Bootcamp-F23/project2-f23/assets/8647920/ac885c28-fcba-4806-933b-eb324877d438">
 
 - This component is a simple search bar that either filters components when you click an enter button next to the search or as you type without using a button.
 - For animal/user pages the search limits by the name of the animal/user and for training log pages the search limits by the title of the training log.
