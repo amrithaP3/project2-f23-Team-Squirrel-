@@ -27,7 +27,7 @@ We will be incorporating all we have learned thus far such as CSS, components, h
 - This page will be the first page to display when running the application
 - It should allow a user to input their email and password and click a login button
     - If the log in is successful (handled in backend verification), we are routed to the Training Logs Dashboard
-    - If the log in is unsuccessful then there is some error message (hint: use conditional rendering) to inform the user of the issue and remains on the Log In page
+    - If the log in is unsuccessful (which you can determine using the verify endpoint) then there is some error message (hint: use conditional rendering) to inform the user of the issue and remains on the Log In page
     - Refer to [Next.js documentation](https://nextjs.org/docs/pages/building-your-application/routing/linking-and-navigating) for how routing and navigation work in Next (it's mostly the same as React)
 - It also has a link to the Create Account Page in case the user does not have an account
 - **Important:** Make sure to track the user's id either through props or [custom hooks](https://react.dev/learn/reusing-logic-with-custom-hooks) (a cleaner way to do it) as you route to other pages
@@ -119,7 +119,7 @@ We will be incorporating all we have learned thus far such as CSS, components, h
     - (Bonus) These three endpoints can implement pagination -- ideally using the document IDs or some other property that has natural ordering (i.e. take a look at approach 2 in this [article](https://www.codementor.io/@arpitbhayani/fast-and-efficient-pagination-in-mongodb-9095flbqr))
 
 ### Verify User
-- Create a GET endpoint at `/api/user/verify` that determines if both the email and password match a user in the database for login. Returns both the user's id and true/false depending on whether the user is an admin or not.
+- Create a POST endpoint at `/api/user/verify` that determines if both the email and password match a user in the database for login. Returns both the user's id and true/false depending on whether the user is an admin or not.
     - Response:
         - **Status 200 (Success):** If the user info is valid
         - **Status 500**: If the user info is not valid
