@@ -1,4 +1,8 @@
-# Project 2 - Animal Training App
+Since .env is in .gitignore, please copy/paste this in your own .env file:
+
+DB_URL="mongodb+srv://DanielChee:903787430@cluster0.9p2mnux.mongodb.net/"
+
+DB_NAME="animal-training-app"# Project 2 - Animal Training App
 
 ## Description
 Welcome to the final project of this year's dev bootcamp! For this project, you will create a full-stack animal training management app (this is a mini version of an app that BoG developed for Healing4Heroes). Your job is to develop a frontend and backend that interact with each other for deployment functionality to manage different users, animals, and training logs. Schemas for these data models can be found in `Schemas.md`.
