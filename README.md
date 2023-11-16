@@ -1,5 +1,7 @@
 Since .env is in .gitignore, please copy/paste this in your own .env file:
+
 DB_URL="mongodb+srv://DanielChee:903787430@cluster0.9p2mnux.mongodb.net/"
+
 DB_NAME="animal-training-app"# Project 2 - Animal Training App
 
 ## Description
