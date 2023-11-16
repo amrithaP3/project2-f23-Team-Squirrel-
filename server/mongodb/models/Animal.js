@@ -1,29 +1,25 @@
 import mongoose from "mongoose";
 
 const animalSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    breed: {
+        type: String,
+        required: true
+    },
     owner: {
-        type: String,
-        required: true
-    },
-    animalName: {
-        type: String,
-        required: true
-    },
-    alertnimalBreed: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
         required: true
     },
     hoursTrained: {
-        type: double,
+        type: Number,
         required: true
     },
-    image: {
+    profilePicture: {
         type: String,
-        required: true
-    },
-    userId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
         required: true
     }
 })
