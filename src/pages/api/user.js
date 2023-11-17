@@ -1,7 +1,7 @@
 import createUser from "../../../server/mongodb/actions/createUser.js"
 
 export default async function handler(req, res) {
-    if (req.method == 'POST') {
+    if (req.method === 'POST') {
         try {
             await createUser(req.body)
         } catch (e) {
