@@ -1,4 +1,4 @@
-import Training from '../../../../server/mongodb/models/Animal.js';
+import Training from '../../../../server/mongodb/models/Training.js';
 import connectDB from "../../../../server/mongodb/index.js";
 
 export default async function handler(req, res) {
