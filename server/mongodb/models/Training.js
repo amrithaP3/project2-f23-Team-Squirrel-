@@ -26,7 +26,7 @@ const trainingSchema = new mongoose.Schema({
     hours: {
         type: double,
         required: true
-    }    
+    }   
 })
 
 export default mongoose.models?.Training || mongoose.model("Training", trainingSchema)
