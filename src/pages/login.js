@@ -1,7 +1,7 @@
-import LoginForm from "../components/LoginForm";
+import CreateAccount from "../components/CreateAccount";
 
 export default function Login() {
     return (
-        <LoginForm />
+        <CreateAccount />
     )
 }
