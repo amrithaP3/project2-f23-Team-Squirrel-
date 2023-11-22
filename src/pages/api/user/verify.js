@@ -1,12 +1,11 @@
 
-import connectDB from '../../../../index.js'; 
-import User from '../../../../models/User.js'; 
+import connectDB from '../../../../server/mongodb/index.js'; 
+import User from '../../../../server/mongodb/models/User.js'; 
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
-
   try {
     await connectDB();
     
@@ -16,7 +15,7 @@ export default async function handler(req, res) {
     if (user && user.comparePassword(password)) {
       return res.status(200).json({
         userId: user._id,
-        isAdmin: user.isAdmin || false,
+        admin: user.admin || false,
       });
     } else {
       return res.status(500).json({ error: 'Invalid email or password' });
