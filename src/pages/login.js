@@ -1,7 +1,9 @@
-import CreateAccount from "../components/CreateAccount";
+import Login from "../components/Login";
 
-export default function Login() {
+
+export default function LoginFunction() {
     return (
-        <CreateAccount />
+        <Login />
+
     )
 }

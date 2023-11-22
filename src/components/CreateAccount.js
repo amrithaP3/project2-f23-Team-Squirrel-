@@ -1,6 +1,9 @@
 import React from 'react';
 import styles from '../styles/CreateAccount.module.css';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import Link from 'next/link';  // Import Link from 'next/link'
+
 
 class CreateAccount extends React.Component {
 
@@ -108,6 +111,12 @@ class CreateAccount extends React.Component {
                 {this.state.error && <div style={{ color: 'red' }}>{this.state.error}</div>}
                 <button type="submit" className={styles['signup-button']}>Sign Up</button>
          </form>
+            <div className={styles['already-have-account']}>
+            Already have an account?{' '}
+            <Link href="/login">
+                Sign in
+            </Link>
+            </div>
          </div>
 
         )
