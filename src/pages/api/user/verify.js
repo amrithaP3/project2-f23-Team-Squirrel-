@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     
     const { email, password } = req.body;
     const user = await User.findOne({ email });
-
+    
     if (user && user.comparePassword(password)) {
       return res.status(200).json({
         userId: user._id,
