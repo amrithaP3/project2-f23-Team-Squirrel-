@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from '../styles/CreateAccount.module.css';
+import styles from '../styles/style.module.css';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import Link from 'next/link';  // Import Link from 'next/link'
+import Link from 'next/link';  
 
 
 class CreateAccount extends React.Component {
@@ -15,7 +15,6 @@ class CreateAccount extends React.Component {
         error: "",
         isAdmin: false
     };
-
     handleChange = event => {
         this.setState({ [event.target.name]: event.target.value, error: "" });
     }
@@ -45,10 +44,11 @@ class CreateAccount extends React.Component {
                 <div className={styles['page-header']}>
                     <div className={styles['header-content']}>
                         <Image src="/applogo.png" alt="App Logo" width={100} height={100} className={styles.appLogo} />
-                        <div className={styles.heading}>Progress</div>
+                        <div className={styles.heading1}>Progress</div>
                     </div>
                 </div>
             <div className={styles['gray-line']}></div>
+            <div className={styles['red-quarter-circle']}></div>
             <form onSubmit={this.handleSubmit} className={styles.container}>
 
                 <div className={styles.heading}>Create Account</div>
@@ -111,7 +111,7 @@ class CreateAccount extends React.Component {
                 {this.state.error && <div style={{ color: 'red' }}>{this.state.error}</div>}
                 <button type="submit" className={styles['signup-button']}>Sign Up</button>
          </form>
-            <div className={styles['already-have-account']}>
+            <div className={styles['have-account']}>
             Already have an account?{' '}
             <Link href="/login">
                 Sign in

@@ -1,7 +1,6 @@
-// components/Login.js
 import React, { useState } from 'react';
-import styles from '../styles/CreateAccount.module.css';
-import Link from 'next/link'; // Import Link from 'next/link'
+import styles from '../styles/style.module.css';
+import Link from 'next/link'; 
 import Image from 'next/image';
 
 const Login = () => {
@@ -11,7 +10,6 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Add your authentication logic here (e.g., send credentials to a server)
     console.log('Login submitted:', { email, password });
   };
 
@@ -20,10 +18,11 @@ const Login = () => {
       <div className={styles['page-header']}>
         <div className={styles['header-content']}>
           <Image src="/applogo.png" alt="App Logo" width={100} height={100} className={styles.appLogo} />
-          <div className={styles.heading}>Progress</div>
+          <div className={styles.heading1}>Progress</div>
         </div>
       </div>
       <div className={styles['gray-line']}></div>
+      <div className={styles['red-quarter-circle']}></div>
 
       <form onSubmit={handleSubmit} className={styles.container}>
         <div className={styles.heading}>Login</div>
@@ -54,7 +53,7 @@ const Login = () => {
         </button>
       </form>
 
-      <div className={styles['dont-have-account']}>
+      <div className={styles['have-account']}>
         Don't have an account?{' '}
         <Link href="/createaccount">
           Sign Up
