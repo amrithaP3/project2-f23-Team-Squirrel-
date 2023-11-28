@@ -5,18 +5,14 @@ import User from '../models/User.js';
 
 export default async function verifyLogin(data) {
   try {
-    const { email, password } = data;
     await connectDB();
+    const { email, password } = data;
     const user = await User.findOne({ email });
-
     if (!user) {
       throw new Error('User not found');
     }
-
-    const existingHash = user.password;
-    const verified = password == user.password
-
-    if (verified) {
+    if (password == user.password) {
+        
       return user;
     } else {
       throw new Error('Invalid password');

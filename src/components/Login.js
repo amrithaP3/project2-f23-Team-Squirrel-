@@ -4,8 +4,10 @@ import styles from '../styles/style.module.css';
 import Link from 'next/link'; 
 import Image from 'next/image';
 import { useRouter } from 'next/router'
+import { useAuth } from '@/hooks/useAuth'
 
 const Login = () => {
+  const { userId, fullName, admin, toggleLogin } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
@@ -18,12 +20,13 @@ const Login = () => {
         body: JSON.stringify({ email, password }),
         headers: {
           "Content-Type": "application/json",
-        },
+        }
       });
+
       if (res.ok) {
         const data = await res.json();
         if (data) {
-          console.log("Login successful");
+          toggleLogin(data);
           router.push("./traininglogs");
         } else {
           alert("Email and password are wrong!");
