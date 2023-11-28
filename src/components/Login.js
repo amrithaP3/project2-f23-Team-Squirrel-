@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 import { useAuth } from '@/hooks/useAuth'
 
 const Login = () => {
-  const { userId, fullName, admin, toggleLogin } = useAuth();
+  const { userId, fullName, admin, logout, login } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
@@ -25,8 +25,9 @@ const Login = () => {
 
       if (res.ok) {
         const data = await res.json();
+        console.log(data)
         if (data) {
-          toggleLogin(data);
+          login(data);
           router.push("./traininglogs");
         } else {
           alert("Email and password are wrong!");

@@ -8,22 +8,20 @@ export const AuthProvider = ({ children }) => {
     const [admin, setAdmin] = useState(false)
     const [loggedIn, setLoggedIn] = useState(false)
 
-    const toggleLogin = (body) => {
-        if (body._id) {
-            setUserId(-1)
-            setAdmin(false)
-            setFullName("")
-            setLoggedIn(false)
-        } else {
-            setUserId(body._id)
-            setAdmin(body.admin)
-            setFullName(body.fullName)
-            setLoggedIn(true)
-        }
+    const login = (body) => {
+        setUserId(body._id)
+        setAdmin(body.admin)
+        setFullName(body.fullName)
+    }
+
+    const logout = () => {
+        setUserId(-1)
+        setAdmin(false)
+        setFullName("")
     }
 
     return (
-        <AuthContext.Provider value={{ userId, fullName, admin, toggleLogin }}>
+        <AuthContext.Provider value={{ userId, fullName, admin, logout, login }}>
             {children}
         </AuthContext.Provider>
     )
