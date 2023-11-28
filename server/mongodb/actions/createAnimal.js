@@ -6,7 +6,7 @@ export default async function createAnimal(data) {
         await connectDB()
         const newAnimal = new Animal(data)
         await newAnimal.save()
-    } 
+    }
     catch (e) {
         console.log(e)
         throw new Error("Unable to create animal")
