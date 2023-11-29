@@ -94,12 +94,13 @@
   .page-header {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     background-color: white;
   }
   
   .header-content {
+    margin-left: 25px;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
@@ -117,4 +118,13 @@
   height: 150px; 
   background-color: rgb(228, 1, 1);
   border-radius: 0 100% 0 0; 
+}
+
+.heading-words {
+  font-size: 34px;
+  font-weight: 900;
+  text-align: left;
+  font-family:  Trebuchet MS, sans-serif;
+  margin-bottom: 20px;
+  margin-top: 15px;
 }
