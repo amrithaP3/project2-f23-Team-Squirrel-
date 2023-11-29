@@ -11,7 +11,7 @@ export default function traininglogs() {
             router.push("/login")
         }
     },[userId]);
-    console.log(userId);
+    console.log("userid is this:" + userId);
     return (
         <>
             <h1>TrainingLogs dashboard</h1>

@@ -9,9 +9,10 @@ export const AuthProvider = ({ children }) => {
     const [loggedIn, setLoggedIn] = useState(false)
 
     const login = (body) => {
-        setUserId(body._id)
-        setAdmin(body.admin)
-        setFullName(body.fullName)
+        const { message } = body;
+        setUserId(message._id)
+        setAdmin(message.admin)
+        setFullName(message.fullName)
     }
 
     const logout = () => {
