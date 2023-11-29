@@ -41,13 +41,6 @@ const Login = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles['page-header']}>
-        <div className={styles['header-content']}>
-          <Image src="/applogo.png" alt="App Logo" width={100} height={100} className={styles.appLogo} />
-          <div className={styles.heading1}>Progress</div>
-        </div>
-      </div>
-      <div className={styles['gray-line']}></div>
       <div className={styles['red-quarter-circle']}></div>
 
       <form onSubmit={handleSubmit} className={styles.container}>
