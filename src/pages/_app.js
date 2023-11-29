@@ -1,6 +1,5 @@
 import '@/styles/globals.css'
 import { AuthProvider } from '@/hooks/useAuth'
-import { useState } from "react";
 
 import HeaderComponent from '@/components/HeaderComponent';
 
