@@ -13,6 +13,7 @@ export default function traininglogs() {
     console.log(userId);
     return (
         <>
+            <h1>TrainingLogs dashboard</h1>
             {/* display search bar */}
             {/* display side bar */}
             {/* display top portion of list */}
