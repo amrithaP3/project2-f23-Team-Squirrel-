@@ -11,7 +11,6 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -22,7 +21,6 @@ const Login = () => {
           "Content-Type": "application/json",
         }
       });
-
       if (res.ok) {
         const data = await res.json();
         console.log(data)

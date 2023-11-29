@@ -93,6 +93,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
@@ -104,4 +105,76 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+/* ANIMAL COMPONENT */
+
+.animal_container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.animal_card_container {
+  display: inline;
+}
+
+.animalNameInfo {
+  font-weight: 800;
+  padding: 5px;
+}
+
+.animal {
+  float: left;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  box-shadow: rgba(28, 28, 31, 0.2) 10px 10px 25px 10px;
+  margin: 12px;
+  width: 350px;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+}
+
+.animal:hover {
+  transform: scale(1.03);
+  
+}
+
+.animal_info_contents {
+  text-align: center;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  border-radius: 0px 0px 15px 15px;
+  border-top: none;
+}
+
+.dog_name_letter {
+  position: absolute;
+  margin: 10px;
+  background-color: #af5555;
+  border-radius: 20%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin-right: 7px;
+  transition: transform 0.3s ease;
+  box-shadow:rgba(28, 28, 31, 0.2) 2px 2px 3px 3px;
+}
+
+.first_letter {
+  font-size: 25px;
+  font-weight: bold;
+}
+.doggie {
+  border-radius: 20px 20px 0px 0px;
 }
