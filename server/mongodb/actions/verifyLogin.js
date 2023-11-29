@@ -12,7 +12,6 @@ export default async function verifyLogin(data) {
       throw new Error('User not found');
     }
     if (password == user.password) {
-        
       return user;
     } else {
       throw new Error('Invalid password');
