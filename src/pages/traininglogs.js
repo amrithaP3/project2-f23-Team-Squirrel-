@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from "react";
 import { useAuth } from '../hooks/useAuth'
+import TrainingLogs from '@/components/TrainingLogs';
 
 export default function traininglogs() {
     const { userId, fullName, admin, logout, login } = useAuth();
@@ -14,6 +15,7 @@ export default function traininglogs() {
     return (
         <>
             <h1>TrainingLogs dashboard</h1>
+            <TrainingLogs />
             {/* display search bar */}
             {/* display side bar */}
             {/* display top portion of list */}
