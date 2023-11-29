@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import moment from "moment";
 
 const CreateLog = () => {
   const [title, setTitle] = useState('');
@@ -9,6 +10,13 @@ const CreateLog = () => {
   const [hours, setHours] = useState('');
   const [animalId, setAnimalId] = useState('');
   const [error, setError] = useState(null);
+  let myMoment = 0;
+        try {
+            myMoment = moment({year, month, day});
+        }catch(e) {
+            setErrorMessage(e.message);
+            return;
+        }
 
 
   const router = useRouter();
@@ -19,7 +27,7 @@ const CreateLog = () => {
     try {
         const res = await fetch("/api/training", {
             method: "POST",
-            body: JSON.stringify({ title, description, hours, animalId }),
+            body: JSON.stringify({ user, animal, title, date, description, hours }),
             headers: {
               "Content-Type": "application/json",
             }
