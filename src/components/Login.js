@@ -82,7 +82,7 @@ const Login = () => {
 
       <div className={styles['have-account']}>
         Don't have an account?{' '}
-        <Link href="/createaccount">
+        <Link href="/createaccount" style={{ fontWeight: 'bold', color:"red"}}>
           Sign Up
         </Link>
       </div>

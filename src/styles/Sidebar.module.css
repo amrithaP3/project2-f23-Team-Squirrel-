@@ -1,0 +1,54 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-right: 1px solid #ccc;
+    padding: 20px;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+  
+  .sidebarItem {
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    color: #4f4f4f;
+    text-decoration: none;
+    transition: ease 0.3s;
+  }
+  
+  .sidebarItem:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .adminAccess {
+    margin-top: 20px;
+  }
+  
+  .userInfo {
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+  }
+  
+  .userIcon {
+    background-color: #f00;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin-right: 10px;
+  }
+  
+  .userName {
+    font-weight: bold;
+  }
+  
+  .userRole {
+    font-size: 0.8em;
+    color: #666;
+  }
+  

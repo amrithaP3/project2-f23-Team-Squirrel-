@@ -4,17 +4,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const CreateAccount = () => {
-  const [fullname, setFullname] = useState('');
+  const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmpass, setConfirmpass] = useState('');
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [admin, setAdmin] = useState(false);
   const [error, setError] = useState(null);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
-    // Check if passwords match
     if (password !== confirmpass) {
       setError('Passwords do not match');
       return;
@@ -23,13 +21,13 @@ const CreateAccount = () => {
     try {
       const res = await fetch('/api/user', {
         method: 'POST',
-        body: JSON.stringify({ fullname, email, password, confirmpass, isAdmin }),
+        body: JSON.stringify({ fullName, email, password, confirmpass, admin }),
         headers: {
           'Content-Type': 'application/json',
         },
       });
 
-      console.log(res); // Log the entire response object
+      console.log(res);
 
       const data = await res.json();
 
@@ -46,28 +44,21 @@ const CreateAccount = () => {
   };
 
   const handleAdmin = () => {
-    setIsAdmin((prevIsAdmin) => !prevIsAdmin);
+    setAdmin((prevIsAdmin) => !prevIsAdmin);
   };
 
   return (
     <div className={styles.container}>
-      <div className={styles['page-header']}>
-        <div className={styles['header-content']}>
-          <Image src="/applogo.png" alt="App Logo" width={100} height={100} className={styles.appLogo} />
-          <div className={styles.heading1}>Progress</div>
-        </div>
-      </div>
-      <div className={styles['gray-line']}></div>
       <div className={styles['red-quarter-circle']}></div>
       <form onSubmit={handleFormSubmit} className={styles.container}>
         <div className={styles.heading}>Create Account</div>
         <div className={styles['input-container']}>
           <input
             type="text"
-            name="fullname"
+            name="fullName"
             placeholder="Full Name"
-            onChange={(e) => setFullname(e.target.value)}
-            value={fullname}
+            onChange={(e) => setFullName(e.target.value)}
+            value={fullName}
             className={styles.input}
           />
           <div className={styles['input-line']}></div>
@@ -109,11 +100,11 @@ const CreateAccount = () => {
           <label>
             <input
               type="checkbox"
-              name="isAdmin"
-              checked={isAdmin}
+              name="admin"
+              checked={admin}
               onChange={handleAdmin}
             />
-            Are you an admin?
+            {"  "}Are you an admin?
           </label>
         </div>
         {error && <div style={{ color: 'red' }}>{error}</div>}
@@ -122,8 +113,8 @@ const CreateAccount = () => {
         </button>
       </form>
       <div className={styles['have-account']}>
-        Already have an account?{' '}
-        <Link href="/login">
+        Already have an account?
+        <Link href="/login" style={{ fontWeight: 'bold', marginLeft:"5px", color:"red"}}>
           Sign in
         </Link>
       </div>
