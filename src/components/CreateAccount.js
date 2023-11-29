@@ -29,7 +29,16 @@ const CreateAccount = () => {
         },
       });
 
-      // Assuming that the response contains data or a message about the success/failure of the operation    
+      console.log(res); // Log the entire response object
+
+      const data = await res.json();
+
+      if (res.ok) {
+        console.log('User created successfully:', data);
+      } else {
+        console.error('Error creating account:', data);
+        setError('An error occurred while creating the account');
+      }
     } catch (error) {
       console.error('Error creating account:', error);
       setError('An error occurred while creating the account');
