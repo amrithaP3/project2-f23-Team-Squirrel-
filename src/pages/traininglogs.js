@@ -21,6 +21,7 @@ export default function traininglogs() {
             setAnimals(data);
         }
         data();
+        console.log(animals)
     },[])
 
     return (
@@ -28,7 +29,7 @@ export default function traininglogs() {
             <h1>TrainingLogs dashboard</h1>
             {animals?.map((animal) => {
                     if (true) {
-                        return <AnimalComponent animal={animal}/>
+                        return <AnimalComponent animal={animal} key={animal._id}/>
                     }
                 })}
             {/* display search bar (optional) */}
