@@ -12,6 +12,7 @@ const CreateLog = () => {
   const [animals, setAnimals] = useState([]);
   const [selectedAnimal, setSelectedAnimal] = useState('');
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
   const {userId} = useAuth();
   const router = useRouter();
 
@@ -31,7 +32,7 @@ const CreateLog = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    // Ensure that we have a valid user ID before sending the request
+  
     if (!userId) {
       setError('No user ID found. Please log in.');
       return;
@@ -46,8 +47,6 @@ const CreateLog = () => {
       hours: Number(hours)
     };
   
-    console.log('Payload before fetch:', payload); // This will show you the payload before it's sent
-  
     try {
       const res = await fetch("/api/training", {
         method: "POST",
@@ -57,19 +56,29 @@ const CreateLog = () => {
         }
       });
   
-      // rest of your fetch call
+      if (!res.ok) { // Check if the HTTP response status code is not successful
+        const errorData = await res.text();
+        console.error('Response error:', errorData);
+        setError('Information invalid, please try again.');
+        return;
+      }
+  
+      setSuccess('Form submission success! Redirecting...');
+      setTimeout(() => {
+        router.push("/traininglogs");
+      }, 2000); // Redirect after 2 seconds
     } catch (error) {
       console.error('Error creating training log:', error);
       setError('An error occurred while creating the training log');
     }
   };
 
-  // Render the form with animal dropdown and date input
   return (
     <div>
       <h1>Create Training Log</h1>
       <form onSubmit={handleFormSubmit}>
         {error && <p style={{ color: 'red' }}>{error}</p>}
+        {success && <p style={{ color: 'green' }}>{success}</p>} {/* Success message */}
 
         <label>
           Title:
