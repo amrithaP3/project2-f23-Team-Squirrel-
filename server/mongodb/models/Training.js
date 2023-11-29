@@ -24,7 +24,7 @@ const trainingSchema = new mongoose.Schema({
         required: true
     },
     hours: {
-        type: double,
+        type: Number,
         required: true
     }   
 })

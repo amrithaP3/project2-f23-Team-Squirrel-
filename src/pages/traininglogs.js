@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from "react";
-import { useAuth } from '../hooks/useAuth';
-import AnimalComponent from '../components/AnimalComponent.js'; // Corrected import
+import { useAuth } from '../hooks/useAuth'
+import TrainingLogs from '@/components/TrainingLogs';
+import AnimalComponent from '../components/AnimalComponent.js';
 
 export default function traininglogs() {
     const { userId } = useAuth();
@@ -19,20 +20,13 @@ export default function traininglogs() {
             const res = await fetch("/api/admin/animals")
             const data = await res.json()
             setAnimals(data);
-        }
-        data();
-        console.log(animals)
-    },[])
-
+    },[userId]);
+    console.log("userid is this:" + userId);
     return (
         <>
             <h1>TrainingLogs dashboard</h1>
-            {animals?.map((animal) => {
-                    if (true) {
-                        return <AnimalComponent animal={animal} key={animal._id}/>
-                    }
-                })}
-            {/* display search bar (optional) */}
+            <TrainingLogs />
+            {/* display search bar */}
             {/* display side bar */}
             {/* display top portion of list */}
             {/* display list components filtered by userId */}
