@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from "react";
 import { useAuth } from '../hooks/useAuth';
-import AnimalComponent from '../components/AnimalComponent.js'; // Corrected import
+import AnimalComponent from '../components/AnimalComponent.js';
+import Link from 'next/link';
 
 export default function animals() {
     const { userId, fullName, admin, logout, login } = useAuth();
@@ -25,6 +26,9 @@ export default function animals() {
 
     return (
         <>
+            <Link href="/createanimal">
+                Create Animal here!
+            </Link>
             <h1>Animals dashboard</h1>
             {animals?.map((animal) => {
                     if (true) {

@@ -39,9 +39,6 @@ export default function traininglogs() {
         <>
             <h1>TrainingLogs dashboard</h1>
             <TrainingLogs />
-            {animals ? animals.map((animal) => (
-                <AnimalComponent animal={animal} key={animal._id} />
-            )) : <p>Loading animals...</p>}
             {/* display search bar */}
             {/* display side bar */}
             {/* display top portion of list */}
