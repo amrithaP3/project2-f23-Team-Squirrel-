@@ -24,10 +24,6 @@ export default function TrainingLogsPage() {
                     throw new Error('Failed to fetch training logs');
                 }
                 const data = await res.json();
-                data.forEach(log => {
-                    console.log("log.user: " + log.user);
-                    console.log("userId: " + userId);
-                });
     
                 const userLogs = data.filter(log => log.user === userId);
                 console.log('Fetched training logs:', userLogs);
