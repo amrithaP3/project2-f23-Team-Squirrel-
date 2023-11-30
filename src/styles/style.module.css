@@ -97,6 +97,8 @@
     align-items: flex-start;
     justify-content: flex-start;
     background-color: white;
+    height: 75px;
+    border-bottom: 2px rgb(171, 170, 170) solid;
   }
   
   .header-content {
