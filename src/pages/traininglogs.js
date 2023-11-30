@@ -6,7 +6,7 @@ import TrainingLog from '@/components/TrainingLog';
 import SearchHeaderComponent from '@/components/SearchHeaderComponent';
 
 export default function TrainingLogsPage() {
-    const { userId } = useAuth();
+    const { userId, fullName, admin, logout, login } = useAuth();
     const [logs, setLogs] = useState(null);
     const router = useRouter();
 
@@ -24,18 +24,19 @@ export default function TrainingLogsPage() {
                     throw new Error('Failed to fetch training logs');
                 }
                 const data = await res.json();
-                const userLogs = data.map(log => {
-                    if (log.user === userId) {
-                        return log;
-                    }
-                })
+                data.forEach(log => {
+                    console.log("log.user: " + log.user);
+                    console.log("userId: " + userId);
+                });
+    
+                const userLogs = data.filter(log => log.user === userId);
                 console.log('Fetched training logs:', userLogs);
                 setLogs(userLogs);
             } catch (error) {
                 console.error('Error fetching training logs:', error);
             }
         }
-
+    
         if (userId !== -1) {
             fetchLogs();
         }
@@ -48,8 +49,8 @@ export default function TrainingLogsPage() {
                 <div id="dashboard">
                     <SearchHeaderComponent/>
                     <h1>TrainingLogs dashboard</h1>
-                    {logs?.map((log) => (
-                        <TrainingLog userID={log.user} animal={log.animal} title={log.title} date={log.date} description={log.description} hours={log.hours} />
+                    {logs?.map((log, index) => (
+                        <TrainingLog key={index} user={log.user} animal={log.animal} title={log.title} date={log.date} description={log.description} hours={log.hours} />
                     ))}
                     <Sidebar/>
                 </div>

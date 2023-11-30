@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import Link from 'next/link'; 
 import Image from 'next/image';
 import styles from '@/styles/TrainingLog.module.css';
-import connectDB from '../../server/mongodb/index';
-import User from '../../server/mongodb/models/User';
+import { useAuth } from '@/hooks/useAuth';
 
 export default function TrainingLog(props) {
 
     const { userId, admin, fullName, login, logout } = useAuth();
-    const { userID, animal, title, date, description, hours } = props;
+    const { user, animal, title, date, description, hours } = props;
 
     //const [userData, setUserData] = useState(null);
 
@@ -70,4 +69,3 @@ export default function TrainingLog(props) {
         </div>
     );
 }
-
