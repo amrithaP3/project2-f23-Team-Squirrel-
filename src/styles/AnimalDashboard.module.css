@@ -1,0 +1,15 @@
+.mainHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+    padding: 10px;
+    border-bottom: 1px rgb(120, 120, 120) solid;
+    color: rgb(125, 125, 125);
+    font-size: 14px;
+}
+
+.animalHeading {
+    font-size: 18px;
+    color: rgb(125, 125, 125);
+}

@@ -5,6 +5,7 @@ import AnimalComponent from '../components/AnimalComponent.js';
 import Link from 'next/link';
 import SearchHeaderComponent from '@/components/SearchHeaderComponent';
 import Sidebar from '../components/Sidebar';
+import styles from '@/styles/AnimalDashboard.module.css'
 
 export default function Animals() {
     const { userId, search } = useAuth();
@@ -37,8 +38,10 @@ export default function Animals() {
             <div style={{ display: 'flex' }}>
                 <Sidebar selected="A"/>
                 <main style={{ flex: 1, overflowY: 'auto', maxHeight: '90vh', padding: '20px' }}>
-                    <h1>Animals dashboard</h1>
-                    <Link href="/createanimal">Create Animal here!</Link>
+                    <div className={styles.mainHeader}>
+                        <h1 className={styles.animalHeading}>Animals</h1>
+                        <Link href="/createanimal">+ Create new</Link>
+                    </div>
                     <div>
                         {animals?.map((animal, index) => (
                             <AnimalComponent key={index} animal={animal}/>
