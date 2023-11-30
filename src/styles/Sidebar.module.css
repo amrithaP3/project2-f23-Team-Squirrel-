@@ -4,6 +4,7 @@
     background: #ffffff;
     border-right: 1px solid #ccc;
     padding: 20px;
+    color: black;
     max-height: 100vh;
     overflow-y: auto;
   }
@@ -12,19 +13,50 @@
     padding: 10px 15px;
     margin-bottom: 5px;
     border-radius: 4px;
-    color: #4f4f4f;
     text-decoration: none;
     transition: ease 0.2s;
   }
   
   .sidebarItem:hover {
-    background-color: #ff8c8c;
+    background-color: #ff7878;
+    color: white;
   }
-  
+
+  .sidebarItem.selected {
+    color: #fff; /* Set text color to white for selected item */
+    background-color: #ea0000; /* You can also change the background color for the selected item */
+  }
+
   .adminAccess {
     margin-top: 20px;
+    display: flex;
+    flex-direction: column; /* Change the direction to column */
+  }
+
+  .horizontalLine {
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+  }
+
+  .adminAccessLink {
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    color: #4f4f4f;
+    text-decoration: none;
+    transition: ease 0.2s;
+  }
+
+  .adminAccessLink:hover {
+    background-color: #ff8c8c;
+    color: white;
   }
   
+  .adminAccessLink.selected {
+    color: #fff;
+    background-color: #ff8c8c;
+  }  
+
   .userInfo {
     display: flex;
     align-items: center;

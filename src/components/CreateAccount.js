@@ -1,5 +1,5 @@
-///Random comment test
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import styles from '../styles/style.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -11,36 +11,44 @@ const CreateAccount = () => {
   const [confirmpass, setConfirmpass] = useState('');
   const [admin, setAdmin] = useState(false);
   const [error, setError] = useState(null);
+  const [success, setSuccess] = useState('');
+
+  const router = useRouter();
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     if (password !== confirmpass) {
       setError('Passwords do not match');
+      setSuccess('');
       return;
     }
 
     try {
       const res = await fetch('/api/user', {
         method: 'POST',
-        body: JSON.stringify({ fullName, email, password, confirmpass, admin }),
+        body: JSON.stringify({ fullName, email, password, admin }),
         headers: {
           'Content-Type': 'application/json',
         },
       });
 
-      console.log(res);
-
       const data = await res.json();
 
       if (res.ok) {
-        console.log('User created successfully:', data);
+        setSuccess('Account created successfully! Redirecting...');
+        setError('');
+        setTimeout(() => {
+          router.push('/login');
+        }, 2000);
       } else {
         console.error('Error creating account:', data);
-        setError('An error occurred while creating the account');
+        setError(data.message || 'An error occurred while creating the account');
+        setSuccess('');
       }
     } catch (error) {
       console.error('Error creating account:', error);
       setError('An error occurred while creating the account');
+      setSuccess('');
     }
   };
 
@@ -109,6 +117,7 @@ const CreateAccount = () => {
           </label>
         </div>
         {error && <div style={{ color: 'red' }}>{error}</div>}
+        {success && <div style={{ color: 'green' }}>{success}</div>}
         <button type="submit" className={styles['signup-button']}>
           Sign Up
         </button>
