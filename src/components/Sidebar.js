@@ -3,19 +3,20 @@ import Link from 'next/link';
 import { useAuth } from '@/hooks/useAuth';
 import styles from '../styles/Sidebar.module.css';
 
-const Sidebar = () => {
+const Sidebar = (props) => {
+  const { selected } = props; // Select will equal TL, A, ATL, AA, or AU to represent which button to highlight
   const { fullName, admin } = useAuth();
 
   return (
     <div className={styles.sidebar}>
-      <Link href="/traininglogs" className={styles.sidebarItem}>Training logs</Link>
-      <Link href="/animals" className={styles.sidebarItem}>Animals</Link>
+      <Link href="/traininglogs" className={styles.sidebarItem} id={selected == "TL" ? "selected" : ""}>Training logs</Link>
+      <Link href="/animals" className={styles.sidebarItem} id={selected == "A" ? "selected" : ""}>Animals</Link>
       {admin && (
         <div className={styles.adminAccess}>
           <div>Admin access</div>
-          <Link href="/all-training" className={styles.sidebarItem}>All training</Link>
-          <Link href="/all-animals" className={styles.sidebarItem}>All animals</Link>
-          <Link href="/all-users" className={styles.sidebarItem}>All users</Link>
+          <Link href="/all-training" className={styles.sidebarItem} id={selected == "ATL" ? "selected" : ""}>All training</Link>
+          <Link href="/all-animals" className={styles.sidebarItem} id={selected == "AA" ? "selected" : ""}>All animals</Link>
+          <Link href="/all-users" className={styles.sidebarItem} id={selected == "AU" ? "selected" : ""}>All users</Link>
         </div>
       )}
       <div className={styles.userInfo}>

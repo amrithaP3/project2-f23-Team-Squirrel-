@@ -38,7 +38,7 @@ export default function TrainingLogsPage() {
 
     return (
         <div style={{ display: 'flex' }}>
-            <Sidebar />
+            <Sidebar selected="TL"/>
             <main style={{ flex: 1 }}>
                 <h1>TrainingLogs dashboard</h1>
                 <TrainingLogs />

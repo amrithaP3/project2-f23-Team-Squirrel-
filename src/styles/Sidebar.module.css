@@ -14,11 +14,11 @@
     border-radius: 4px;
     color: #4f4f4f;
     text-decoration: none;
-    transition: ease 0.3s;
+    transition: ease 0.2s;
   }
   
   .sidebarItem:hover {
-    background-color: #f0f0f0;
+    background-color: #ff8c8c;
   }
   
   .adminAccess {
@@ -51,4 +51,5 @@
     font-size: 0.8em;
     color: #666;
   }
+
   
