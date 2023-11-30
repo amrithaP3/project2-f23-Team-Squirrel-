@@ -41,7 +41,6 @@
     color: black;
     background-color: white;
     caret-color: black; 
-    margin-left: -40px;
   }
   
   .input::placeholder {
