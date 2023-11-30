@@ -18,19 +18,22 @@ export default function Users() {
     }, []);
 
     return (
-        <div  style={{ backgroundColor: 'white', minHeight: '100vh' }} className={style1.contents}>
-            <Sidebar selected="AU" />
-            <div className={style1.mainContent} style={{ marginLeft: '200px' }}>
-                <h1>Users Admin dashboard</h1>
-                <div className={styles.userList}>
-                    {users.map(user => (
-                        user.fullname && (
-                            <UserDisplay key={user._id} data={{ 
-                                fullName: user.fullname, 
-                                admin: user.isAdmin 
-                            }} />
-                        )
-                    ))}
+        <div style={{ display: 'flex', flexDirection:"column"}}>
+            <SearchHeaderComponent/>
+            <div  style={{ backgroundColor: 'white', minHeight: '100vh' }} className={style1.contents}>
+                <Sidebar selected="AU" />
+                <div className={style1.mainContent} style={{ marginLeft: '200px' }}>
+                    <h1>Users Admin dashboard</h1>
+                    <div className={styles.userList}>
+                        {users.map(user => (
+                            user.fullname && (
+                                <UserDisplay key={user._id} data={{ 
+                                    fullName: user.fullname, 
+                                    admin: user.isAdmin 
+                                }} />
+                            )
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

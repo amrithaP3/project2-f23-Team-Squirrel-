@@ -25,25 +25,28 @@ export default function TrainingLogs() {
     }, []);
 
     return (
-        <div className={style1.contents}>
-            <Sidebar selected="ATL"/>
-            <h1>TrainingLogs Admin dashboard</h1>
-        
-        <div className={styles.dashboard}>
-            <h1 className={styles.title}>Training Logs</h1>
-            <div className={styles.logList}>
-                {trainingLogs.length > 0 ? (
-                    trainingLogs.map((log, index) => (
-                        <TrainingLog key={index} user={log.user} animal={log.animal} title={log.title} date={log.date} description={log.description} hours={log.hours} />
-                    ))
-                ) : (
-                    <div className={styles.noLogs}>No training logs available.</div>
-                )}
+        <div style={{ display: 'flex', flexDirection:"column"}}>
+            <SearchHeaderComponent/>
+            <div className={style1.contents}>
+                <Sidebar selected="ATL"/>
+                <h1>TrainingLogs Admin dashboard</h1>
+            
+            <div className={styles.dashboard}>
+                <h1 className={styles.title}>Training Logs</h1>
+                <div className={styles.logList}>
+                    {trainingLogs.length > 0 ? (
+                        trainingLogs.map((log, index) => (
+                            <TrainingLog key={index} user={log.user} animal={log.animal} title={log.title} date={log.date} description={log.description} hours={log.hours} />
+                        ))
+                    ) : (
+                        <div className={styles.noLogs}>No training logs available.</div>
+                    )}
+                </div>
+
             </div>
 
+            </div> 
         </div>
-
-        </div> 
     );
 }
 // trainingLogs.map(log => {
