@@ -14,7 +14,7 @@ const Sidebar = (props) => {
       {admin && (
         <div className={styles.adminAccess}>
           <div>Admin access</div>
-          <Link href="/admin/training" className={styles.sidebarItem} id={selected == "ATL" ? "selected" : ""}>All training</Link>
+          <Link href="/admin/traininglogs" className={styles.sidebarItem} id={selected == "ATL" ? "selected" : ""}>All training</Link>
           <Link href="/admin/animals" className={styles.sidebarItem} id={selected == "AA" ? "selected" : ""}>All animals</Link>
           <Link href="/admin/users" className={styles.sidebarItem} id={selected == "AU" ? "selected" : ""}>All users</Link>
         </div>

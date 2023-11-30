@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from "react";
 import { useAuth } from '../../hooks/useAuth'
+import Sidebar from '../../components/Sidebar';
 
 export default function users() {
     const { userId, fullName, admin, logout, login } = useAuth();
@@ -12,6 +13,7 @@ export default function users() {
     },[userId]);
     return (
         <>
+            <Sidebar selected="AU"/>
             <h1>User admin dashboard</h1>
         </> 
     )
