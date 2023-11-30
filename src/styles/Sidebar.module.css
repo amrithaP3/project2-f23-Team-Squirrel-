@@ -1,7 +1,7 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  background: #ffffff;
+  background: white;
   border-right: 1px solid #ccc;
   padding: 20px;
   color: black;
@@ -23,7 +23,7 @@
 .adminAccess {
   margin-top: 20px;
   display: flex;
-  flex-direction: column; /* Change the direction to column */
+ flex-direction: column; /* Change the direction to column */
 }
 
 .horizontalLine {
@@ -36,6 +36,7 @@
   margin-bottom: 5px;
   border-radius: 4px;
   color: #4f4f4f;
+  text-align: left;
   text-decoration: none;
   transition: ease 0.2s;
 }
