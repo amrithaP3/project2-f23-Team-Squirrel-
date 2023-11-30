@@ -25,7 +25,7 @@ export default function TrainingLogsPage() {
                 }
                 const data = await res.json();
                 const userLogs = data.map(log => {
-                    if (log.userId === userId) {
+                    if (log.user === userId) {
                         return log;
                     }
                 })
@@ -49,7 +49,7 @@ export default function TrainingLogsPage() {
                     <SearchHeaderComponent/>
                     <h1>TrainingLogs dashboard</h1>
                     {logs?.map((log) => (
-                        <TrainingLog userID={log.userId} animal={log.animal} title={log.title} date={log.date} description={log.description} hours={log.hours} />
+                        <TrainingLog userID={log.user} animal={log.animal} title={log.title} date={log.date} description={log.description} hours={log.hours} />
                     ))}
                     <Sidebar/>
                 </div>

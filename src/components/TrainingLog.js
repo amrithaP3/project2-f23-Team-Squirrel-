@@ -5,7 +5,7 @@ import styles from '@/styles/TrainingLog.module.css';
 import connectDB from '../../server/mongodb/index';
 import User from '../../server/mongodb/models/User';
 
-export default async function TrainingLog(props) {
+export default function TrainingLog(props) {
 
     const { userId, admin, fullName, login, logout } = useAuth();
     const { userID, animal, title, date, description, hours } = props;
