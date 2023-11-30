@@ -8,6 +8,9 @@ import User from '../../server/mongodb/models/User';
 
 export default async function TrainingLog(props) {
 
+    const { userId, admin, fullName, login, logout } = useAuth();
+    const { userID, animal, title, date, description, hours } = props;
+
     //const [userData, setUserData] = useState(null);
 
     /**
@@ -31,8 +34,8 @@ export default async function TrainingLog(props) {
 
     */
 
-    const user = await User.findById(userId);
-    const name = user.fullname;
+    //const user = await User.findById(userId);
+    //const name = user.fullname;
 
     function formatDateComponents(dateString) {
         // Create a Date object from the string
@@ -45,9 +48,6 @@ export default async function TrainingLog(props) {
       
         return { day, month, year };
       }
-      
-
-    const { userId, animal, title, date, description, hours } = props;
 
     // works for Format: YYYY-MM-DD
     const components = formatDateComponents(date);
@@ -62,12 +62,13 @@ export default async function TrainingLog(props) {
                 <div id="allInfo">
                     <div id="info">
                         <p id="heading">{title} • {hours}</p>
-                        <p id="bottomInfo">{name} - {animal}</p>
+                        <p id="bottomInfo">{fullName} - {animal}</p>
                     </div>
                     <p id="desc">{description}</p>
                 </div>
-                <button id="edit" alt="edit" onClick={(e) => {}} ></button>
+                <button id="delete" alt="delete" onClick={(e) => {}} ></button>
             </div>
         </div>
     );
 }
+

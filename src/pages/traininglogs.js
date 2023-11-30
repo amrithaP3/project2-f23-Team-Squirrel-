@@ -2,12 +2,12 @@ import { useRouter } from 'next/router';
 import { useState, useEffect } from "react";
 import { useAuth } from '../hooks/useAuth';
 import TrainingLogs from '@/components/TrainingLogs';
-import AnimalComponent from '../components/AnimalComponent.js';
 import Sidebar from '../components/Sidebar';
+import TrainingLog from '@/components/TrainingLog';
 
 export default function TrainingLogsPage() {
     const { userId } = useAuth();
-    const [animals, setAnimals] = useState(null);
+    const [logs, setLogs] = useState(null);
     const router = useRouter();
 
     useEffect(() => {
@@ -17,22 +17,27 @@ export default function TrainingLogsPage() {
     }, [userId]);
 
     useEffect(() => {
-        async function fetchAnimals() {
+        async function fetchLogs() {
             try {
-                const res = await fetch("/api/admin/animals");
+                const res = await fetch("/api/admin/training");
                 if (!res.ok) {
-                    throw new Error('Failed to fetch animals');
+                    throw new Error('Failed to fetch training logs');
                 }
                 const data = await res.json();
-                console.log('Fetched animals:', data);
-                setAnimals(data);
+                const userLogs = data.map(log => {
+                    if (log.userId === userId) {
+                        return log;
+                    }
+                })
+                console.log('Fetched training logs:', userLogs);
+                setLogs(userLogs);
             } catch (error) {
-                console.error('Error fetching animals:', error);
+                console.error('Error fetching training logs:', error);
             }
         }
 
         if (userId !== -1) {
-            fetchAnimals();
+            fetchLogs();
         }
     }, [userId]);
 
@@ -41,9 +46,8 @@ export default function TrainingLogsPage() {
             <Sidebar selected="TL"/>
             <main style={{ flex: 1 }}>
                 <h1>TrainingLogs dashboard</h1>
-                <TrainingLogs />
-                {animals?.map((animal) => (
-                    <AnimalComponent key={animal._id} animal={animal} />
+                {logs?.map((log) => (
+                    <TrainingLog userID={log.userId} animal={log.animal} title={log.title} date={log.date} description={log.description} hours={log.hours} />
                 ))}
                 {/* display search bar */}
                 {/* display side bar */}
