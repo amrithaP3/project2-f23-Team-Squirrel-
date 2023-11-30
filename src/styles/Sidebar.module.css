@@ -1,87 +1,106 @@
 .sidebar {
-    display: flex;
-    flex-direction: column;
-    background: #ffffff;
-    border-right: 1px solid #ccc;
-    padding: 20px;
-    color: black;
-    max-height: 100vh;
-    overflow-y: auto;
-  }
-  
-  .sidebarItem {
-    padding: 10px 15px;
-    margin-bottom: 5px;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: ease 0.2s;
-  }
-  
-  .sidebarItem:hover {
-    background-color: #ff7878;
-    color: white;
-  }
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-right: 1px solid #ccc;
+  padding: 20px;
+  color: black;
+  max-height: 100vh;
+  overflow-y: auto;
+}
 
-  .sidebarItem.selected {
-    color: #fff; /* Set text color to white for selected item */
-    background-color: #ea0000; /* You can also change the background color for the selected item */
-  }
+.sidebarItem {
+  padding: 10px 15px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: ease 0.2s;
+  display: flex;
+  align-items: center;
+  color: black; /* Set the default text color */
+}
 
-  .adminAccess {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column; /* Change the direction to column */
-  }
+.sidebarItem:hover {
+  background-color: #ff7878;
+  color: white;
+}
 
-  .horizontalLine {
-    border-top: 1px solid #ccc;
-    margin: 10px 0;
-  }
+.sidebarItem.selected {
+  color: #fff;
+  background-color: #ea0000;
+}
 
-  .adminAccessLink {
-    padding: 10px 15px;
-    margin-bottom: 5px;
-    border-radius: 4px;
-    color: #4f4f4f;
-    text-decoration: none;
-    transition: ease 0.2s;
-  }
+.adminAccess {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column; /* Change the direction to column */
+}
 
-  .adminAccessLink:hover {
-    background-color: #ff8c8c;
-    color: white;
-  }
-  
-  .adminAccessLink.selected {
-    color: #fff;
-    background-color: #ff8c8c;
-  }  
+.horizontalLine {
+  border-top: 1px solid #ccc;
+  margin: 10px 0;
+}
 
-  .userInfo {
-    display: flex;
-    align-items: center;
-    margin-top: auto;
-  }
-  
-  .userIcon {
-    background-color: #f00;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    margin-right: 10px;
-  }
-  
-  .userName {
-    font-weight: bold;
-  }
-  
-  .userRole {
-    font-size: 0.8em;
-    color: #666;
-  }
+.adminAccessLink {
+  padding: 10px 15px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  color: #4f4f4f;
+  text-decoration: none;
+  transition: ease 0.2s;
+}
 
-  
+.adminAccessLink:hover {
+  background-color: #ff8c8c;
+  color: white;
+}
+
+.adminAccessLink.selected {
+  color: #fff;
+  background-color: #ff8c8c;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+}
+
+.userIcon {
+  background-color: #f00;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.userName {
+  font-weight: bold;
+}
+
+.userRole {
+  font-size: 0.8em;
+  color: #666;
+}
+
+.redBox {
+  display: flex;
+  align-items: center;
+  background-color: #ff0000;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.iconContainer {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.icon {
+  color: #ffffff; /* Set the color to white or the desired color */
+}
