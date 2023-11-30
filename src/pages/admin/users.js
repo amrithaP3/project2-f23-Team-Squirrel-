@@ -3,6 +3,7 @@ import UserDisplay from '../../components/UserDisplay';
 import styles from '@/styles/UserDisplay.module.css';
 import style1 from '@/styles/AdminTL.module.css';
 import Sidebar from '../../components/Sidebar';
+import SearchHeaderComponent from '@/components/SearchHeaderComponent';
 
 export default function Users() {
     const [users, setUsers] = useState([]);

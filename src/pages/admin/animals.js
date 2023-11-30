@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useAuth } from '../../hooks/useAuth';
 import style1 from '@/styles/AdminTL.module.css';
 import Sidebar from '../../components/Sidebar';
+import SearchHeaderComponent from '@/components/SearchHeaderComponent';
 
 export default function AnimalsDashboard() {
     const [animals, setAnimals] = useState([]);
