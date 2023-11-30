@@ -121,14 +121,15 @@ const CreateAccount = () => {
           <div className={styles['input-line']}></div>
         </div>
         <div className={styles['input-container']}>
-          <label>
+          <label id={styles['check']}>
             <input
               type="checkbox"
               name="admin"
               checked={admin}
               onChange={handleAdmin}
+              style={{ accentColor: "red" }}
             />
-            {"  "}Are you an admin?
+            {"  "}Admin Access
           </label>
         </div>
         {error && <div style={{ color: 'red', marginBottom: '15px' }}>{error}</div>}
