@@ -43,15 +43,16 @@
 }
 .all {
     border: solid;
-    border-color: rgb(58, 58, 58);
+    border-color: rgb(255, 255, 255);
     border-radius: 10px;
-    border-width: 3px;
+    border-width: 2px;
     margin-left: 100px;
     margin-top: 24px;
     margin-bottom: 23px;
-    width: 800px;
+    width: 900px;
     height: 130px;
-    transition: ease 0.3s
+    transition: ease 0.3s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 .all:hover {
     transform: scale(1.03); /* Increase the scale factor to make it "pop" more */
@@ -66,9 +67,9 @@
     padding: 10px;
     padding-top: 30px;
     background-color: rgb(48, 48, 129);
-    height: 124px;
+    height: 126px;
     color: white;
-    border-radius: 3px;
+    border-radius: 8px 0px 0px 8px;
 
 }
 
@@ -132,4 +133,18 @@
 .heading {
     font-weight: bold;
     font-size: 24px;
+}
+
+.editButton {
+    margin: 15px;
+}
+
+.editButton :hover {
+    
+}
+
+.fourSides {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

@@ -5,6 +5,7 @@ import styles from '../../src/styles/TrainingDashboard.module.css';
 import Animal from '../../server/mongodb/models/Animal';
 import connectDB from '../../server/mongodb';
 import { useAuth } from '@/hooks/useAuth';
+import editButton from "../images/editButton.png"
 
 export default function TrainingLog(props) {
 
@@ -90,23 +91,32 @@ export default function TrainingLog(props) {
     
     return (
         <div className={styles.all}>
-            <div className={styles.threeSides}>
-                <div className={styles.leftSide}>
-                    <p className={styles.date}>{components.day}</p>
-                    <p className={styles.monthYear}>{month} - {components.year}</p>
-                </div>
-                <div className={styles.allInfo}>
-                    <div className={styles.info}>
-                        <div className={styles.top}>
-                            <p className={styles.heading}>{title}</p>
-                            <p className={styles.dot}> • </p>
-                            <p className={styles.num}>{hours} </p>
-                            <p className={styles.hours}>{hours !== 1 ? (<p> hours</p>) : (<p> hour</p>)}</p>
-                        </div>
-                        <div className={styles.bottom}>{fullName} - {breed} - {name}</div>
+            <div className={styles.fourSides}>
+                <div className={styles.threeSides}>
+                    <div className={styles.leftSide}>
+                        <p className={styles.date}>{components.day}</p>
+                        <p className={styles.monthYear}>{month} - {components.year}</p>
                     </div>
-                    <p className={styles.desc}>{description}</p>
+                    <div className={styles.moreInfo}>
+                        <div className={styles.allInfo}>
+                            <div className={styles.info}>
+                                <div className={styles.top}>
+                                    <p className={styles.heading}>{title}</p>
+                                    <p className={styles.dot}> • </p>
+                                    <p className={styles.num}>{hours} </p>
+                                    <p className={styles.hours}>{hours !== 1 ? (<p> hours</p>) : (<p> hour</p>)}</p>
+                                </div>
+                                <div className={styles.bottom}>{fullName} - {breed} - {name}</div>
+                            </div>
+                            <p className={styles.desc}>{description}</p>
+                        </div>
+                    </div>
                 </div>
+                    <Image 
+                        className={styles.editButton}
+                        src={editButton}
+                        width={55}
+                    />
             </div>
         </div>
     );
