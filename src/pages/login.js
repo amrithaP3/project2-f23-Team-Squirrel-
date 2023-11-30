@@ -1,7 +1,12 @@
 import Login from "../components/Login";
+import HeaderComponent from '@/components/HeaderComponent';
 
 export default function LoginFunction() {
     return (
-        <Login />
+        <>
+            <HeaderComponent />
+            <Login />
+        </>
+        
     )
 }
