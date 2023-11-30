@@ -27,11 +27,11 @@ const CreateAccount = () => {
       setSuccess('');
       return;
     }
-    if (password.length < 6) {
-      setError('Password must be 6 characters or longer');
-      setSuccess('');
-      return;
-    }
+    // if (password.length < 6) {
+    //   setError('Password must be 6 characters or longer');
+    //   setSuccess('');
+    //   return;
+    // }
 
     try {
       const res = await fetch('/api/user', {
