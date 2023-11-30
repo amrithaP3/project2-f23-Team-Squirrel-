@@ -51,7 +51,6 @@ export default function TrainingLogsPage() {
                     {logs?.map((log, index) => (
                         <TrainingLog key={index} user={log.user} animal={log.animal} title={log.title} date={log.date} description={log.description} hours={log.hours} />
                     ))}
-                    <Sidebar/>
                 </div>
             </main>
         </div> 
