@@ -17,8 +17,18 @@ const CreateAccount = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    if (fullName === '' || email ==='') {
+      setError('Invalid credentials');
+      setSuccess('');
+      return;
+    }
     if (password !== confirmpass) {
       setError('Passwords do not match');
+      setSuccess('');
+      return;
+    }
+    if (password.length < 6) {
+      setError('Password must be 6 characters or longer');
       setSuccess('');
       return;
     }
@@ -116,8 +126,8 @@ const CreateAccount = () => {
             {"  "}Are you an admin?
           </label>
         </div>
-        {error && <div style={{ color: 'red' }}>{error}</div>}
-        {success && <div style={{ color: 'green' }}>{success}</div>}
+        {error && <div style={{ color: 'red', marginBottom: '15px' }}>{error}</div>}
+        {success && <div style={{ color: 'green', marginBottom: '15px'  }}>{success}</div>}
         <button type="submit" className={styles['signup-button']}>
           Sign Up
         </button>
