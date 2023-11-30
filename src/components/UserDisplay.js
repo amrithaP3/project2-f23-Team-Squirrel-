@@ -9,8 +9,8 @@ export default function UserDisplay({ data }) {
                     <b>{data.fullName?.charAt(0).toUpperCase()}</b>
                 </div>
                 <div className={styles.user_info_content}>
-                    <p className={styles.user_name}><b>{data.fullName}</b></p>
-                    <p className={data.admin ? styles.user_identifier : ''}>
+                    <p><b>{data.fullName}</b></p>
+                    <p>
                         {data.admin ? 'Admin' : 'User'}
                     </p>
                 </div>

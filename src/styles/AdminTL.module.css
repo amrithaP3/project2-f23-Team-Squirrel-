@@ -1,5 +1,12 @@
 .contents {
     display: flex;
     flex-direction: row;
-    height: 100rlh;
+    height: 100vh;
+}
+
+.mainContent {
+    flex-grow: 1; 
+    background-color: white;
+    padding: 20px;
+    min-height: 100vh;
 }

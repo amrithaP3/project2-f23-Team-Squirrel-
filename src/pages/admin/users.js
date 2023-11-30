@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import UserDisplay from '../../components/UserDisplay';
 import styles from '@/styles/UserDisplay.module.css';
+import style1 from '@/styles/AdminTL.module.css';
+import Sidebar from '../../components/Sidebar';
 
-export default function users() {
+export default function Users() {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
@@ -14,17 +17,21 @@ export default function users() {
     }, []);
 
     return (
-        <div>
-            <h1>Users</h1>
-            <ul>
-                {users.map(user => (
-                    user.fullname && (
-                        <li key={user._id}>
-                            {user.fullname} - {user.isAdmin ? 'Admin' : 'User'} - Location: {user.location || 'Not specified'}
-                        </li>
-                    )
-                ))}
-            </ul>
+        <div  style={{ backgroundColor: 'white', minHeight: '100vh' }} className={style1.contents}>
+            <Sidebar selected="ATL" />
+            <div className={style1.mainContent} style={{ marginLeft: '200px' }}>
+                <h1>Users Admin dashboard</h1>
+                <div className={styles.userList}>
+                    {users.map(user => (
+                        user.fullname && (
+                            <UserDisplay key={user._id} data={{ 
+                                fullName: user.fullname, 
+                                admin: user.isAdmin 
+                            }} />
+                        )
+                    ))}
+                </div>
+            </div>
         </div>
     );
 }
