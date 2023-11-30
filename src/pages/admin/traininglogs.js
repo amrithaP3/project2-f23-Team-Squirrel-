@@ -3,6 +3,7 @@ import styles from '../../styles/TrainingDashboard.module.css';
 import Sidebar from '../../components/Sidebar';
 import style1 from '@/styles/AdminTL.module.css';
 import TrainingLog from '@/components/TrainingLog';
+import SearchHeaderComponent from '@/components/SearchHeaderComponent';
 
 export default function TrainingLogs() {
     const [trainingLogs, setTrainingLogs] = useState([]);

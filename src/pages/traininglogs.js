@@ -42,17 +42,21 @@ export default function TrainingLogsPage() {
     }, [userId, search]);
 
     return (
-        <div style={{ display: 'flex' }}>
+        <div style={{ display: 'flex', flexDirection:"column"}}>
+            <SearchHeaderComponent/>
+            <div style={{ display: 'flex' }}>
             <Sidebar selected="TL"/>
             <main style={{ flex: 1 }}>
                 <div id="dashboard">
-                    <SearchHeaderComponent/>
+                    
                     <h1>TrainingLogs dashboard</h1>
                     {logs?.map((log, index) => (
                         <TrainingLog key={index} user={log.user} animal={log.animal} title={log.title} date={log.date} description={log.description} hours={log.hours} />
                     ))}
                 </div>
             </main>
-        </div> 
+        </div>
+        </div>
+        
     );
 }

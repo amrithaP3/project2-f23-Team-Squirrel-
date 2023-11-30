@@ -103,3 +103,8 @@
 .linkText {
   margin-left: 10px; /* Add some margin between the icon and text */
 }
+
+.logoutDoor {
+  margin: 0;
+  margin-left: 7px;
+}
