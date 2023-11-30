@@ -32,27 +32,20 @@ export default function Animals() {
     }, [userId, search]);
 
     return (
-        <div style={{ display: 'flex', flexDirection:"column"}}>
+        <div style={{ display: 'flex', flexDirection: "column" }}>
             <SearchHeaderComponent/>
             <div style={{ display: 'flex' }}>
                 <Sidebar selected="A"/>
-                <main style={{ flex: 1 }}>
+                <main style={{ flex: 1, overflowY: 'auto', maxHeight: '90vh', padding: '20px' }}>
                     <h1>Animals dashboard</h1>
-                    <Link href="/createanimal">
-                    Create Animal here!
-                </Link>
-                    {animals?.map((animal) => {
-                        if (true) {
-                            return <AnimalComponent animal={animal}/>
-                        }
-                    })}
-                    {/* display search bar */}
-                    {/* display side bar */}
-                    {/* display top portion of list */}
-                    {/* display list components filtered by userId */}
+                    <Link href="/createanimal">Create Animal here!</Link>
+                    <div>
+                        {animals?.map((animal, index) => (
+                            <AnimalComponent key={index} animal={animal}/>
+                        ))}
+                    </div>
                 </main>
             </div> 
         </div>
     )
 }
-

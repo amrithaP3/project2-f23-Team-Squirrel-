@@ -9,27 +9,15 @@ export default function Animal(props) {
 
   return (
     <>
-      <style jsx>{`
-        .animal {
-          background-color: white;
-          color: black;
-          /* Add any additional styling you need */
-        }
-
-        .dog_name_letter,
-        .doggie,
-        .animal_info_contents {
-          color: black; /* Set the text color to black */
-        }
-
-        /* Add any other styles you need for specific elements */
-      `}</style>
 
       <div className={`${styles.animal} animal`}>
-        <div className="dog_name_letter">
-          <p className="first_letter">{animal.name.charAt(0).toUpperCase()}</p>
+        <div className={"animalContainer"}>
+          <div className="dog_name_letter">
+            <p className="first_letter">{animal.name.charAt(0).toUpperCase()}</p>
+          </div>
+          <img className="doggie" src={animal.profilePicture} width="350" height="250" />
         </div>
-        <img className="doggie" src={animal.profilePicture} width="350" height="250" />
+          
         <div className="info">
           <div className="animal_info_contents">
             <div className="animalNameInfo">{animal.name} - {animal.breed}</div>
