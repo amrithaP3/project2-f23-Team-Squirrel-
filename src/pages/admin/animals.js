@@ -1,48 +1,50 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from "react";
 import { useAuth } from '../../hooks/useAuth';
-import style1 from '@/styles/AdminTL.module.css';
-import Sidebar from '../../components/Sidebar';
+import AnimalComponent from '../../components/AnimalComponent.js';
+import Link from 'next/link';
 import SearchHeaderComponent from '@/components/SearchHeaderComponent';
 
-export default function AnimalsDashboard() {
-    const [animals, setAnimals] = useState([]);
+import Sidebar from '../../components/Sidebar';
+
+export default function animals() {
+    const { userId, fullName, admin, logout, login } = useAuth();
+    const [ animals, setAnimals ] = useState(null)
+    const router = useRouter();
 
     useEffect(() => {
-        const fetchAnimals = async () => {
-            const result = await fetch("/api/admin/animals");
-            const animalData = await result.json();
-            setAnimals(animalData);
-        };
+        if (userId === -1) {
+            router.push("/login");
+        }
+    }, [userId]);
 
-        fetchAnimals();
-    }, []);
+    useEffect(() => {
+        async function getData() {
+            const response = await fetch("/api/admin/animals")
+            const data = await response.json()
+            setAnimals(data)
+        }
+        getData();
+    },[])
 
     return (
         <div style={{ display: 'flex', flexDirection:"column"}}>
             <SearchHeaderComponent/>
-            <div style={{ backgroundColor: 'white', minHeight: '100vh', color: 'black' }} className={style1.contents}>
+            <div style={{ display: 'flex' }}>
                 <Sidebar selected="AA"/>
-                <div className={style1.mainContent}>
-                    <h1 style={{ color: 'black' }}>Animals</h1>
-                    <div>
-                        {animals.map(animal => (
-                            <div key={animal._id} className="animal">
-                                <div className="dog_name_letter">
-                                    <p className="first_letter" style={{ color: 'black' }}>{animal.name.charAt(0).toUpperCase()}</p>
-                                </div>
-                                <img className="doggie" src={animal.profilePicture} alt={animal.name} width="350" height="250" />
-                                <div className="info">
-                                    <div className="animal_info_contents">
-                                        <div className="animalNameInfo" style={{ color: 'black' }}>{animal.name} - {animal.breed}</div>
-                                        <div style={{ color: 'black' }}>Trained: {animal.hoursTrained} hours</div>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
+                <main style={{ flex: 1 }}>
+                    <h1>All Animals</h1>
+                    {animals?.map((animal) => {
+                        if (true) {
+                            return <AnimalComponent animal={animal}/>
+                        }
+                    })}
+                    {/* display search bar */}
+                    {/* display side bar */}
+                    {/* display top portion of list */}
+                    {/* display list components filtered by userId */}
+                </main>
+            </div> 
         </div>
-    );
+    )
 }
