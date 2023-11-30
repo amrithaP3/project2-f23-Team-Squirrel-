@@ -18,7 +18,7 @@ export default function Users() {
 
     return (
         <div  style={{ backgroundColor: 'white', minHeight: '100vh' }} className={style1.contents}>
-            <Sidebar selected="ATL" />
+            <Sidebar selected="AU" />
             <div className={style1.mainContent} style={{ marginLeft: '200px' }}>
                 <h1>Users Admin dashboard</h1>
                 <div className={styles.userList}>

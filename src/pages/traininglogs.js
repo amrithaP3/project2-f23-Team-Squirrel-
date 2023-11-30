@@ -6,7 +6,7 @@ import TrainingLog from '@/components/TrainingLog';
 import SearchHeaderComponent from '@/components/SearchHeaderComponent';
 
 export default function TrainingLogsPage() {
-    const { userId, fullName, admin, logout, login } = useAuth();
+    const { userId, search } = useAuth();
     const [logs, setLogs] = useState(null);
     const router = useRouter();
 
@@ -24,10 +24,13 @@ export default function TrainingLogsPage() {
                     throw new Error('Failed to fetch training logs');
                 }
                 const data = await res.json();
+        
+                const filteredLogs = data
+                    .filter(log => log.user === userId)
+                    .filter(log => log.title.toLowerCase().startsWith(search.toLowerCase()));
     
-                const userLogs = data.filter(log => log.user === userId);
-                console.log('Fetched training logs:', userLogs);
-                setLogs(userLogs);
+                console.log('Fetched and filtered training logs:', filteredLogs);
+                setLogs(filteredLogs);
             } catch (error) {
                 console.error('Error fetching training logs:', error);
             }
@@ -36,7 +39,7 @@ export default function TrainingLogsPage() {
         if (userId !== -1) {
             fetchLogs();
         }
-    }, [userId]);
+    }, [userId, search]);
 
     return (
         <div style={{ display: 'flex' }}>

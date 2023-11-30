@@ -19,7 +19,7 @@ export default function AnimalsDashboard() {
 
     return (
         <div style={{ backgroundColor: 'white', minHeight: '100vh', color: 'black' }} className={style1.contents}>
-            <Sidebar selected="ATL"/>
+            <Sidebar selected="AA"/>
             <div className={style1.mainContent}>
                 <h1 style={{ color: 'black' }}>Animals</h1>
                 <div>
