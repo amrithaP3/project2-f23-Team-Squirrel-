@@ -1,14 +1,23 @@
-import connectDB from "../index.js"
-import User from "../models/User.js"
+import bcrypt from 'bcryptjs';
+import connectDB from '../index.js';
+import User from '../models/User.js';
 
-export default async function createUser(data) {
-    try {
-        await connectDB()
-        const user = new User(data)
-        await user.save()
-        return user;
-    } catch (error) {
-        console.error(error);
-        throw new Error("Unable to create user");
-    }
-}
+const createUser = async (data) => {
+    await connectDB();
+    const { fullName, email, password, admin } = data;
+  
+    const hashedPassword = await bcrypt.hash(password, 10);
+  
+    const user = new User({
+      fullName,
+      email,
+      password: hashedPassword,
+      admin,
+    });
+  
+    await user.save();
+    return user;
+  };
+  
+  export default createUser;
+  

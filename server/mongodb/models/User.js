@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
-    fullname: {
+    fullName: {
         type: String,
         required: true
     },
@@ -13,14 +13,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    confirmpass: {
-        type: String,
-        required: true
-    },
-    isAdmin: {
+    admin: { // Ensure this is defined correctly
         type: Boolean,
         required: true
     }
-})
+});
 
-export default mongoose.models?.User || mongoose.model("User", userSchema)
+export default mongoose.models?.User || mongoose.model("User", userSchema);

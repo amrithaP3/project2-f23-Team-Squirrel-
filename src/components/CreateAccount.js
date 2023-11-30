@@ -36,11 +36,16 @@ const CreateAccount = () => {
     try {
       const res = await fetch('/api/user', {
         method: 'POST',
-        body: JSON.stringify({ fullName, email, password, admin }),
+        body: JSON.stringify({
+            fullName,
+            email,
+            password,
+            admin: admin,
+        }),
         headers: {
-          'Content-Type': 'application/json',
+            'Content-Type': 'application/json',
         },
-      });
+    });
 
       const data = await res.json();
 
