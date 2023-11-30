@@ -4,6 +4,8 @@ import { useAuth } from '../hooks/useAuth';
 import Sidebar from '../components/Sidebar';
 import TrainingLog from '@/components/TrainingLog';
 import SearchHeaderComponent from '@/components/SearchHeaderComponent';
+import styles from '@/styles/LogDashboard.module.css';
+import Link from 'next/link';
 
 export default function TrainingLogsPage() {
     const { userId, search } = useAuth();
@@ -45,17 +47,19 @@ export default function TrainingLogsPage() {
         <div style={{ display: 'flex', flexDirection:"column"}}>
             <SearchHeaderComponent/>
             <div style={{ display: 'flex' }}>
-            <Sidebar selected="TL"/>
-            <main style={{ flex: 1 }}>
-                <div id="dashboard">
-                    
-                    <h1>TrainingLogs dashboard</h1>
+                <Sidebar selected="TL"/>
+                <main style={{ flex: 1, overflowY: 'auto', maxHeight: '90vh', padding: '20px' }}>
+                    <div className={styles.mainHeader}>
+                        <h1 className={styles.animalHeading}>Training Logs</h1>
+                        <Link href="/createlog">+ Create new</Link>
+                    </div>
+                    <div>
                     {logs?.map((log, index) => (
                         <TrainingLog key={index} user={log.user} animal={log.animal} title={log.title} date={log.date} description={log.description} hours={log.hours} />
                     ))}
-                </div>
-            </main>
-        </div>
+                    </div>
+                </main>
+            </div> 
         </div>
         
     );
