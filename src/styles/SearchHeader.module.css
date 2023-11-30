@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap');
+
 .text {
     background-color: white;
     width: 400px;
@@ -41,3 +43,13 @@
     background-color: white;
 }
 
+.Progression {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 38px;
+    font-weight: 600;
+}
+
+.logoP {
+    display: flex;
+    justify-content: flex-start;
+}

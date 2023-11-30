@@ -81,7 +81,7 @@ const CreateLog = () => {
       <h1 className={styles.heading}>Create Training Log Form</h1>
       <form onSubmit={handleFormSubmit} className={styles.form}>
         {error && <p style={{ color: 'red', marginBottom: '10px' }}>{error}</p>}
-        {success && <p style={{ color: 'green', marginBottom: '10px' }}>{success}</p>} {/* Success message */}
+        {success && <p style={{ color: 'green', marginBottom: '10px' }}>{success}</p>}
   
         <div className={styles.formGroup}>
           <label className={styles.label}>Title</label>
