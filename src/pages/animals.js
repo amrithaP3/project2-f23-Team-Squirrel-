@@ -5,7 +5,7 @@ import AnimalComponent from '../components/AnimalComponent.js';
 import Link from 'next/link';
 import SearchHeaderComponent from '@/components/SearchHeaderComponent';
 import Sidebar from '../components/Sidebar';
-import styles from '@/styles/AnimalDashboard.module.css'
+import styles from '@/styles/AnimalDashboard.module.css';
 
 export default function Animals() {
     const { userId, search } = useAuth();
@@ -22,9 +22,10 @@ export default function Animals() {
         async function getData() {
             const response = await fetch("/api/admin/animals");
             const data = await response.json();
-            const filteredAnimals = data.filter(animal => 
-                animal.name.toLowerCase().startsWith(search.toLowerCase())
-            );
+            console.log(data)
+            const filteredAnimals = data
+                .filter(animal => animal.owner === userId) // Filter by userId
+                .filter(animal => animal.name.toLowerCase().startsWith(search.toLowerCase()));
             setAnimals(filteredAnimals);
         }
         if (userId !== -1) {

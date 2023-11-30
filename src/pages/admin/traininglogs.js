@@ -4,9 +4,25 @@ import Sidebar from '../../components/Sidebar';
 import TrainingLog from '@/components/TrainingLog';
 import SearchHeaderComponent from '@/components/SearchHeaderComponent';
 import Link from 'next/link';
+import { useAuth } from '../../hooks/useAuth';
+import { useRouter } from 'next/router';
 
 export default function TrainingLogs() {
+    const { userId, fullName, admin, logout, login } = useAuth();
     const [trainingLogs, setTrainingLogs] = useState([]);
+    const router = useRouter();
+
+    useEffect(() => {
+        if (userId === -1) {
+            router.push("/login");
+        }
+    }, [userId]);
+
+    useEffect(() => {
+        if (!admin) {
+            router.push("/login");
+        }
+    }, [admin]);
 
     useEffect(() => {
         const fetchTrainingLogs = async () => {
