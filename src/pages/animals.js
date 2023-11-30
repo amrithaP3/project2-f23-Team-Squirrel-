@@ -44,9 +44,13 @@ export default function Animals() {
                         <Link href="/createanimal">+ Create new</Link>
                     </div>
                     <div>
-                        {animals?.map((animal, index) => (
-                            <AnimalComponent key={index} animal={animal}/>
-                        ))}
+                        {animals == null || animals.length > 0 ? (
+                            animals?.map((animal, index) => (
+                                <AnimalComponent key={index} animal={animal}/>
+                            ))
+                        ) : (
+                            <div className={styles.noAnimals}>No animals available.</div>
+                        )}
                     </div>
                 </main>
             </div> 
