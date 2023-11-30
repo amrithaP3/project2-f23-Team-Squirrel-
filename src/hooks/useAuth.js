@@ -7,6 +7,7 @@ export const AuthProvider = ({ children }) => {
     const [fullName, setFullName] = useState("")
     const [admin, setAdmin] = useState(false)
     const [loggedIn, setLoggedIn] = useState(false)
+    const [search, setSearch] = useState("")
 
     const login = (body) => {
         const { message } = body;
@@ -22,7 +23,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     return (
-        <AuthContext.Provider value={{ userId, fullName, admin, logout, login }}>
+        <AuthContext.Provider value={{ userId, fullName, admin, logout, login, setSearch, search }}>
             {children}
         </AuthContext.Provider>
     )
