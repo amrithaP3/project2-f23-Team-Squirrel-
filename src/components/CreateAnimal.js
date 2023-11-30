@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useAuth } from '@/hooks/useAuth';
+import styles from '@/styles/CreateLog.module.css'; // Assuming CreateAnimal will use the same styles
 
 const CreateAnimal = () => {
   const [name, setName] = useState('');
@@ -14,26 +15,20 @@ const CreateAnimal = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-  
+
     if (!userId) {
       setError('No user ID found. Please log in.');
       return;
     }
-  
-    console.log(name);
-    console.log(breed);
-    console.log(userId);
-    console.log(hoursTrained);
-    console.log(profilePicture);
 
     const payload = {
       name,
       breed,
       owner: userId,
-      hoursTrained: hoursTrained,
+      hoursTrained: Number(hoursTrained),
       profilePicture
     };
-  
+
     try {
       const res = await fetch("/api/animal", {
         method: "POST",
@@ -42,14 +37,14 @@ const CreateAnimal = () => {
           "Content-Type": "application/json",
         }
       });
-  
+
       if (!res.ok) {
         const errorData = await res.text();
         console.error('Response error:', errorData);
         setError('Information invalid, please try again.');
         return;
       }
-  
+
       setSuccess('Animal creation success! Redirecting...');
       setTimeout(() => {
         router.push("/animals");
@@ -61,53 +56,60 @@ const CreateAnimal = () => {
   };
 
   return (
-    <div>
-      <h1>Create Animal</h1>
-      <form onSubmit={handleFormSubmit}>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        {success && <p style={{ color: 'green' }}>{success}</p>}
+    <div className={styles.container}>
+      <h1 className={styles.heading}>Create Animal</h1>
+      <form onSubmit={handleFormSubmit} className={styles.form}>
+        {error && <p style={{ color: 'red', marginBottom: '10px' }}>{error}</p>}
+        {success && <p style={{ color: 'green', marginBottom: '10px' }}>{success}</p>}
 
-        <label>
-          Name:
+        <div className={styles.formGroup}>
+          <label className={styles.label}>Name</label>
           <input 
+            className={styles.input}
             type="text"
             value={name} 
             onChange={(e) => setName(e.target.value)}
           />
-        </label>
-        <br />
+        </div>
 
-        <label>
-          Breed:
+        <div className={styles.formGroup}>
+          <label className={styles.label}>Breed</label>
           <input 
+            className={styles.input}
             type="text" 
             value={breed}
             onChange={(e) => setBreed(e.target.value)}
           />
-        </label>
-        <br />
+        </div>
 
-        <label>
-          Hours Trained:
+        <div className={styles.formGroup}>
+          <label className={styles.label}>Hours Trained</label>
           <input 
+            className={styles.input}
             type="number" 
             value={hoursTrained}
             onChange={(e) => setHoursTrained(e.target.value)}
           />
-        </label>
-        <br />
+        </div>
 
-        <label>
-          Profile Picture URL:
+        <div className={styles.formGroup}>
+          <label className={styles.label}>Profile Picture URL</label>
           <input 
+            className={styles.input}
             type="text" 
             value={profilePicture}
             onChange={(e) => setProfilePicture(e.target.value)}
           />
-        </label>
-        <br />
+        </div>
 
-        <button type="submit">Create Animal</button>
+        <div className={styles.buttonGroup}>
+          <button type="button" className={`${styles.button} ${styles.cancelButton}`} onClick={() => router.push('/animals')}>
+            Cancel
+          </button>
+          <button type="submit" className={`${styles.button} ${styles.saveButton}`}>
+            Save
+          </button>
+        </div>
       </form>
     </div>
   );

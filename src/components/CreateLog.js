@@ -1,8 +1,7 @@
-// pages/createlog.js
-
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useAuth } from '@/hooks/useAuth'
+import styles from '@/styles/CreateLog.module.css';
 
 const CreateLog = () => {
   const [title, setTitle] = useState('');
@@ -73,26 +72,31 @@ const CreateLog = () => {
     }
   };
 
-  return (
-    <div>
-      <h1>Create Training Log</h1>
-      <form onSubmit={handleFormSubmit}>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        {success && <p style={{ color: 'green' }}>{success}</p>} {/* Success message */}
+  const handleCancel = () => {
+    router.push('/traininglogs');
+  };
 
-        <label>
-          Title:
+  return (
+    <div className={styles.container}>
+      <h1 className={styles.heading}>Create Training Log Form</h1>
+      <form onSubmit={handleFormSubmit} className={styles.form}>
+        {error && <p style={{ color: 'red', marginBottom: '10px' }}>{error}</p>}
+        {success && <p style={{ color: 'green', marginBottom: '10px' }}>{success}</p>} {/* Success message */}
+  
+        <div className={styles.formGroup}>
+          <label className={styles.label}>Title</label>
           <input 
+            className={styles.input}
             type="text"
             value={title} 
             onChange={(e) => setTitle(e.target.value)}
           />
-        </label>
-        <br />
-
-        <label>
-          Animal:
+        </div>
+  
+        <div className={styles.formGroup}>
+          <label className={styles.label}>Select Animal</label>
           <select
+            className={styles.select}
             value={selectedAnimal}
             onChange={(e) => setSelectedAnimal(e.target.value)}
           >
@@ -102,42 +106,49 @@ const CreateLog = () => {
               </option>
             ))}
           </select>
-        </label>
-        <br />
-
-        <label>
-          Description:
-          <textarea 
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </label>
-        <br />
-
-        <label>
-          Hours Trained:
+        </div>
+  
+        <div className={styles.formGroup}>
+          <label className={styles.label}>Total hours trained</label>
           <input 
+            className={styles.input}
             type="number" 
             value={hours}
             onChange={(e) => setHours(e.target.value)}
           />
-        </label>
-        <br />
-
-        <label>
-          Date:
+        </div>
+  
+        <div className={styles.formGroup}>
+          <label className={styles.label}>Date</label>
           <input 
+            className={styles.input}
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
           />
-        </label>
-        <br />
-
-        <button type="submit">Create Log</button>
+        </div>
+  
+        <div className={styles.formGroup}>
+          <label className={styles.label}>Note</label>
+          <textarea 
+            className={styles.textarea}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </div>
+  
+        <div className={styles.buttonGroup}>
+          <button type="button" className={`${styles.button} ${styles.cancelButton}`} onClick={() => router.push('/traininglogs')}>
+            Cancel
+          </button>
+          <button type="submit" className={`${styles.button} ${styles.saveButton}`}>
+            Save
+          </button>
+        </div>
       </form>
     </div>
   );
+  
 };
 
 export default CreateLog;
