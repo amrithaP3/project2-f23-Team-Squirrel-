@@ -54,13 +54,17 @@ export default function TrainingLogsPage() {
                         <Link href="/createlog">+ Create new</Link>
                     </div>
                     <div>
-                    {logs?.map((log, index) => (
-                        <TrainingLog key={index} user={log.user} animal={log.animal} title={log.title} date={log.date} description={log.description} hours={log.hours} />
-                    ))}
+                    {logs == null || logs.length > 0 ? (
+                        logs?.map((log, index) => (
+                            <TrainingLog key={index} user={log.user} animal={log.animal} title={log.title} date={log.date} description={log.description} hours={log.hours} />
+                        ))
+                    ) : (
+                        <div className={styles.noLogs}>No training logs available.</div>
+                    )}
+                    
                     </div>
                 </main>
             </div> 
         </div>
-        
     );
 }
