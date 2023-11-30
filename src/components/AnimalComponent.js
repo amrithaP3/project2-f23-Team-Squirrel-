@@ -1,6 +1,7 @@
 import { useAuth } from '@/hooks/useAuth'
+import styles from '@/styles/Animal.module.css';
 
-
+import css from 'styled-jsx/css';
 export default function Animal(props) {
     const { userId, admin, fullName, login, logout } = useAuth();
     const { animal } = props;
@@ -11,7 +12,7 @@ export default function Animal(props) {
     //     "profilePicture": "https://media-cldnry.s-nbcnews.com/image/upload/rockcms/2022-08/220805-border-collie-play-mn-1100-82d2f1.jpg"
     // };   
     return (
-        <div className="animal">
+        <div className={styles.animal}>
              <div className={"dog_name_letter"}>
                     <p className={"first_letter"}>{animal.name.charAt(0).toUpperCase()}</p>
                 </div>
