@@ -5,19 +5,9 @@
   border-right: 1px solid #ccc;
   padding: 20px;
   color: black;
-  max-height: 100vh;
   overflow-y: auto;
-}
 
-.sidebarItem {
-  padding: 10px 15px;
-  margin-bottom: 5px;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: ease 0.2s;
-  display: flex;
-  align-items: center;
-  color: black; /* Set the default text color */
+
 }
 
 .sidebarItem:hover {
@@ -57,7 +47,7 @@
 
 .adminAccessLink.selected {
   color: #fff;
-  background-color: #ff8c8c;
+  background-color: #ec0000;
 }
 
 .userInfo {
@@ -103,4 +93,12 @@
 
 .icon {
   color: #ffffff; /* Set the color to white or the desired color */
+}
+.linkContent {
+  display: flex;
+  align-items: center;
+}
+
+.linkText {
+  margin-left: 10px; /* Add some margin between the icon and text */
 }

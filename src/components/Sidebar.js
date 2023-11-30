@@ -19,46 +19,57 @@ const Sidebar = (props) => {
   return (
     <div className={styles.sidebar}>
         
-        <Link href="/traininglogs" className={`${styles.sidebarItem} ${selected === "TL" ? styles.selected : ""}`}>
-        <div className={`${styles.iconContainer} ${selected !== "TL" ? styles.whiteBackground : ""}`}>
-          <FontAwesomeIcon icon={faPencil} className={styles.icon} />
+      <Link href="/traininglogs" className={`${styles.adminAccessLink} ${selected === "TL" ? styles.selected : ""}`}>
+      <div className={styles.linkContent}>
+        <div className={styles.iconContainer}>
+          <FontAwesomeIcon icon={faPencil} className="icon" />
         </div>
-        Training logs
+        <div className={styles.linkText}>Training logs</div>
+      </div>
       </Link>
 
-      <Link href="/animals" className={`${styles.sidebarItem} ${selected === "A" ? styles.selected : ""}`}>
-          <div className={styles.iconContainer}>
-            <FontAwesomeIcon icon={faBone} className={styles.icon} />
-          </div>
-            Animals
+      <Link href="/animals" className={`${styles.adminAccessLink} ${selected === "A" ? styles.selected : ""}`}>
+      <div className={styles.linkContent}>
+        <div className={styles.iconContainer}>
+          <FontAwesomeIcon icon={faBone} className="icon" />
+        </div>
+        <div className={styles.linkText}>Animals</div>
+      </div>
       </Link>
 
       <div className={styles.horizontalLine}></div>
       
       
       {admin && (
-        <div className={styles.adminAccess}>
-          <div>Admin access</div>
-          <Link href="/admin/traininglogs" className={`${styles.adminAccessLink} ${selected === "ATL" ? styles.selected : ""}`}>
-          <div className={styles.iconContainer}>
-            <FontAwesomeIcon icon={faFolder} className="icon" />
-          </div>
-            All training
-          </Link>
-          <Link href="/admin/animals" className={`${styles.adminAccessLink} ${selected === "AA" ? styles.selected : ""}`}>
-          <div className={styles.iconContainer}>
-            <FontAwesomeIcon icon={faFrog} className="icon" />
-          </div>
-            All animals
-          </Link>
-          <Link href="/admin/users" className={`${styles.adminAccessLink} ${selected === "AU" ? styles.selected : ""}`}>
-          <div className={styles.iconContainer}>
-            <FontAwesomeIcon icon={faUsers} className="icon" />
-          </div>
-          All users
-          </Link>
+  <div className={styles.adminAccess}>
+    <div>Admin access</div>
+    <Link href="/admin/traininglogs" className={`${styles.adminAccessLink} ${selected === "ATL" ? styles.selected : ""}`}>
+      <div className={styles.linkContent}>
+        <div className={styles.iconContainer}>
+          <FontAwesomeIcon icon={faFolder} className="icon" />
         </div>
-      )}
+        <div className={styles.linkText}>All training</div>
+      </div>
+    </Link>
+    <Link href="/admin/animals" className={`${styles.adminAccessLink} ${selected === "AA" ? styles.selected : ""}`}>
+      <div className={styles.linkContent}>
+        <div className={styles.iconContainer}>
+          <FontAwesomeIcon icon={faFrog} className="icon" />
+        </div>
+        <div className={styles.linkText}>All animals</div>
+      </div>
+    </Link>
+    <Link href="/admin/users" className={`${styles.adminAccessLink} ${selected === "AU" ? styles.selected : ""}`}>
+      <div className={styles.linkContent}>
+        <div className={styles.iconContainer}>
+          <FontAwesomeIcon icon={faUsers} className="icon" />
+        </div>
+        <div className={styles.linkText}>All users</div>
+      </div>
+    </Link>
+  </div>
+)}
+
       <div className={styles.userInfo}>
         <div className={styles.userIcon}>L</div>
         <div>
