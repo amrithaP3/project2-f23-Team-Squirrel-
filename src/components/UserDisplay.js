@@ -11,7 +11,7 @@ export default function UserDisplay({ data }) {
                 <div className={styles.user_info_content}>
                     <p><b>{data.fullName}</b></p>
                     <p>
-                        {data.admin ? 'Admin' : 'User'}
+                        {data.admin ? '(Admin)' : '(User)'}
                     </p>
                 </div>
             </div>
