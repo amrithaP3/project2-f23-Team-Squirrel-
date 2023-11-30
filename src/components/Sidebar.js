@@ -4,6 +4,8 @@ import { useAuth } from '@/hooks/useAuth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencil } from '@fortawesome/free-solid-svg-icons';
 import styles from '../styles/Sidebar.module.css';
+import Image from 'next/image'
+import logout_door from '@/images/logout.png'
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faBone, faPencilAlt, faFolder, faFrog, faUsers } from '@fortawesome/free-solid-svg-icons';
@@ -13,7 +15,7 @@ library.add(faBone, faPencilAlt);
 
 const Sidebar = (props) => {
   const { selected } = props;
-  const { fullName, admin } = useAuth();
+  const { fullName, admin, logout } = useAuth();
 
   
   return (
@@ -74,8 +76,20 @@ const Sidebar = (props) => {
         <div className={styles.userIcon}>{fullName?.charAt(0).toUpperCase()}</div>
         <div>
           <div className={styles.userName}>{fullName}</div>
-          <div className={styles.userRole}>{admin ? 'Admin' : 'User'}</div>
+          <div className={styles.userRole}>
+            {admin ? 'Admin' : 'User'}
+            
+          </div>
         </div>
+        <Link href='/login'>
+              <Image
+                src={logout_door}
+                width={20}
+                height={20}
+                className={styles.logoutDoor}
+                onClick={() => logout()}
+              />
+            </Link>
       </div>
     </div>
   );
