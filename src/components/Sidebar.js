@@ -71,7 +71,7 @@ const Sidebar = (props) => {
 )}
 
       <div className={styles.userInfo}>
-        <div className={styles.userIcon}>L</div>
+        <div className={styles.userIcon}>{fullName?.charAt(0).toUpperCase()}</div>
         <div>
           <div className={styles.userName}>{fullName}</div>
           <div className={styles.userRole}>{admin ? 'Admin' : 'User'}</div>
