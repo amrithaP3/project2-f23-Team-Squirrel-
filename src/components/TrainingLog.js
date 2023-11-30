@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import styles from '../styles/style.module.css';
 import Link from 'next/link'; 
 import Image from 'next/image';
-import styles from '../styles/TrainingLog.module.css';
+import styles from '@/styles/TrainingLog.module.css';
 import connectDB from '../../server/mongodb/index';
 import User from '../../server/mongodb/models/User';
 

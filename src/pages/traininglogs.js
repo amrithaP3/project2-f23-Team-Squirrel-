@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from "react";
 import { useAuth } from '../hooks/useAuth';
-import TrainingLogs from '@/components/TrainingLogs';
 import Sidebar from '../components/Sidebar';
 import TrainingLog from '@/components/TrainingLog';
+import SearchHeaderComponent from '@/components/SearchHeaderComponent';
 
 export default function TrainingLogsPage() {
     const { userId } = useAuth();
@@ -45,14 +45,14 @@ export default function TrainingLogsPage() {
         <div style={{ display: 'flex' }}>
             <Sidebar selected="TL"/>
             <main style={{ flex: 1 }}>
-                <h1>TrainingLogs dashboard</h1>
-                {logs?.map((log) => (
-                    <TrainingLog userID={log.userId} animal={log.animal} title={log.title} date={log.date} description={log.description} hours={log.hours} />
-                ))}
-                {/* display search bar */}
-                {/* display side bar */}
-                {/* display top portion of list */}
-                {/* display list components filtered by userId */}
+                <div id="dashboard">
+                    <SearchHeaderComponent/>
+                    <h1>TrainingLogs dashboard</h1>
+                    {logs?.map((log) => (
+                        <TrainingLog userID={log.userId} animal={log.animal} title={log.title} date={log.date} description={log.description} hours={log.hours} />
+                    ))}
+                    <Sidebar/>
+                </div>
             </main>
         </div> 
     );
