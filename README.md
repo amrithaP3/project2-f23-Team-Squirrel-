@@ -1,4 +1,4 @@
-## NOTE: due to technical issues, I was not able to commit my changes after a certain point and as such, some of my teammates had to commit them for me after I sent them the appropriate files with my code.
+NOTE: due to technical issues, I was not able to commit my changes after a certain point and as such, some of my teammates had to commit them for me after I sent them the appropriate files with my code.
 
 ## Description
 Welcome to the final project of this year's dev bootcamp! For this project, you will create a full-stack animal training management app (this is a mini version of an app that BoG developed for Healing4Heroes). Your job is to develop a frontend and backend that interact with each other for deployment functionality to manage different users, animals, and training logs. Schemas for these data models can be found in `Schemas.md`.
